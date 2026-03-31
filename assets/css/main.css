@@ -46,6 +46,19 @@ body {
     text-decoration: underline; /* Adds underline on hover */
 }
 
+.standalone-link {
+	display: inline;
+    text-align: center;
+    margin-top: 20px; 
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #000; 
+}
+
+.standalone-link:hover {
+	text-decoration: underline; 
+}
+
 ol, ul {
 	list-style: none;
 }
