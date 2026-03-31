@@ -46,14 +46,14 @@
   <body class="is-preload">
     <div id="header">
       <div class="top">
-        <div id="logo">
+        <div id="profile-picture">
           <a href="/portfolio/">
             <span class="image avatar48">
               <img src="images/profile-pic.JPG" alt="Profile Picture" />
             </span>
             <h1 id="title" class="signature">Bryan Bu Wen Bin</h1>
           </a>
-          <p>Artificial Intelligence Student</p>
+          <p id="typewriter"></p>
         </div>
 
         <nav id="nav">
@@ -367,12 +367,15 @@
           </ul>
           <a
             href="#"
-            id="emailLink"
-            class="icon solid fa-envelope"
-            data-email="bubryanwb@gmail.com"
+            id="copyEmailBtn"
+            class="button primary pulsing-btn icon solid fa-envelope"
           >
-            : bubryanwb@gmail.com
+            Send me an email!
           </a>
+
+          <div id="copyNotification" class="toast-notification">
+            Email copied to clipboard! ✨
+          </div>
         </div>
       </section>
     </div>
