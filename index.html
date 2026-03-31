@@ -1,11 +1,13 @@
 <!doctype html>
-<!--
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>Bryan Bu Wen Bin | Home</title>
+
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -23,6 +25,8 @@
       sizes="16x16"
       href="./favicon_io/favicon-16x16.png"
     />
+    <link rel="manifest" href="./favicon_io/site.webmanifest" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
       rel="stylesheet"
@@ -35,32 +39,23 @@
       href="https://fonts.googleapis.com/css2?family=Allura&display=swap"
       rel="stylesheet"
     />
-    <link rel="manifest" href="./favicon_io/site.webmanifest" />
-    <title>Bryan Bu Wen Bin | Home</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
+
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
+
   <body class="is-preload">
-    <!-- Header -->
     <div id="header">
       <div class="top">
-        <!-- Logo -->
-
-        <div id="logo">
-          <a href="/portfolio/index.html">
-            <span class="image avatar48"
-              ><img src="../images/profile-pic.JPG" alt="Profile Picture"
-            /></span>
+        <div id="profile-picture">
+          <a href="/portfolio/">
+            <span class="image avatar48">
+              <img src="images/profile-pic.JPG" alt="Profile Picture" />
+            </span>
             <h1 id="title" class="signature">Bryan Bu Wen Bin</h1>
           </a>
-          <p>Artificial Intelligence Student</p>
+          <p id="typewriter"></p>
         </div>
 
-        <!-- Nav -->
         <nav id="nav">
           <ul>
             <li>
@@ -98,7 +93,6 @@
       </div>
 
       <div class="bottom">
-        <!-- Social Icons -->
         <ul class="icons">
           <li>
             <a
@@ -107,31 +101,26 @@
               title="Github"
               target="_blank"
               rel="noopener noreferrer"
-              ><span class="label">Github</span></a
             >
+              <span class="label">Github</span>
+            </a>
           </li>
           <li>
             <a
-              href="https://www.linkedin.com/in/bubryanwb/"
+              href="https://www.linkedin.com/in/bryanbuwb/"
               class="icon brands fa-linkedin"
               title="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
-              ><span class="label">LinkedIn</span></a
             >
+              <span class="label">LinkedIn</span>
+            </a>
           </li>
-          <!-- <li>
-            <a href="#" class="icon solid fa-envelope"
-              ><span class="label">Email</span></a
-            >
-          </li> -->
         </ul>
       </div>
     </div>
 
-    <!-- Main -->
     <div id="main">
-      <!-- Intro -->
       <section id="top" class="one dark cover">
         <div class="container">
           <header>
@@ -144,15 +133,10 @@
             </h2>
             <h2 class="alt-intro">Enjoy your visit!</h2>
           </header>
+
           <footer>
             <a href="#about" class="button scrolly">More About Me</a>
           </footer>
-          <!-- <div class="credit-line">
-            Image Credit:
-            <a href="https://www.instagram.com/moments.jimmy/" target="_blank"
-              >Jimmy Tan</a
-            >
-          </div> -->
 
           <div class="credit-line-container">
             <div class="credit-line">
@@ -171,7 +155,6 @@
         </div>
       </section>
 
-      <!-- About Me -->
       <section id="about" class="two">
         <div class="container">
           <header>
@@ -192,24 +175,24 @@
             academic journey, I find myself fascinated by the intricate ways in
             which LLMs can interpret, generate, and transform human language.
             Amazing, isn't it? This fascination has led me to seek out various
-            projects related to the field. <br />
-            <br />
+            projects related to the field. <br /><br />
 
             I have developed skill sets in programming, especially in Python,
             along with data analysis, machine learning, and computer vision, all
             of which reinforce my capability to contribute to the field of AI.
             My experience includes undertaking various projects where I have
             applied these skills in practical settings, demonstrating my ability
-            to innovate and create effective solutions. <br /><br />
+            to innovate and create effective solutions.
+            <br /><br />
 
-            <!-- Hobby -->
             Just a brief section about my hobby to get to know more about me.
             Besides studies, I really enjoy music, especially playing the piano.
             For me, it's a fun way to relax and it also helps me to be more
             creative and focused, which I believe is beneficial for everything I
             do, including my studies and projects. If you wish to know more
             about my piano covers, by clicking the door emoji
-            <a href="./assets/html/piano-cover.html" class="back-to-main">🚪</a
+            <a href="./assets/html/piano-cover.html" class="standalone-link"
+              >🚪</a
             >, you will enter my world of music. <br /><br />
 
             Thank you for taking the time to learn about me until this far. I'm
@@ -219,7 +202,6 @@
         </div>
       </section>
 
-      <!-- Coding Project -->
       <section id="codingprojects" class="three">
         <div class="container">
           <header>
@@ -230,7 +212,6 @@
 
           <div class="row">
             <div class="col-4 col-12-mobile">
-              <!--Generative Adversarial Network-->
               <article class="item">
                 <a
                   href="./assets/html/generative-adversarial-network.html"
@@ -247,18 +228,9 @@
                   </a>
                 </header>
               </article>
-
-              <!-- <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="images/pic03.jpg" alt=""
-                /></a>
-                <header>
-                  <h3>TO BE SHOWCASED</h3>
-                </header>
-              </article> -->
             </div>
+
             <div class="col-4 col-12-mobile">
-              <!--Z3-Solver-->
               <article class="item">
                 <a href="./assets/html/z3-solver.html" class="image fit">
                   <img src="images/z3-solver-square.jpg" alt="z3-solver" />
@@ -269,18 +241,9 @@
                   </a>
                 </header>
               </article>
-
-              <!-- <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="images/pic05.jpg" alt=""
-                /></a>
-                <header>
-                  <h3>TO BE SHOWCASED</h3>
-                </header>
-              </article> -->
             </div>
+
             <div class="col-4 col-12-mobile">
-              <!--Jetbot-->
               <article class="item">
                 <a href="./assets/html/cv-jetbot.html" class="image fit">
                   <img
@@ -294,27 +257,16 @@
                   </a>
                 </header>
               </article>
-
-              <!-- <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="images/pic07.jpg" alt=""
-                /></a>
-                <header>
-                  <h3>TO BE SHOWCASED</h3>
-                </header>
-              </article> -->
             </div>
           </div>
         </div>
 
-        <br />
-        <br />
-        <a href="./assets/html/coding-project.html" class="back-to-main"
+        <br /><br />
+        <a href="./assets/html/coding-project.html" class="standalone-link"
           >MORE PROJECTS HERE</a
         >
       </section>
 
-      <!-- Achievements -->
       <section id="achievements" class="eight">
         <div class="container">
           <header>
@@ -322,7 +274,6 @@
           </header>
 
           <div class="row-achievements">
-            <!--CERN-->
             <div class="col-4 col-12-mobile">
               <article class="item">
                 <a href="./assets/html/cern.html" class="image fit">
@@ -336,7 +287,6 @@
               </article>
             </div>
 
-            <!--congatec-->
             <div class="col-4 col-12-mobile">
               <article class="item">
                 <a href="./assets/html/congatec.html" class="image fit">
@@ -350,7 +300,6 @@
               </article>
             </div>
 
-            <!--Bosch-->
             <div class="col-4 col-12-mobile">
               <article class="item">
                 <a href="./assets/html/bosch.html" class="image fit">
@@ -367,7 +316,6 @@
         </div>
       </section>
 
-      <!-- Curriculum Vitae -->
       <section id="cv" class="seven">
         <div class="container">
           <header>
@@ -375,14 +323,13 @@
           </header>
           <div class="iframe-container">
             <iframe
-              src="https://drive.google.com/file/d/1odqVfdUzz8vIMlsbgIDBOesmCu4e9tBH/preview"
+              src="https://drive.google.com/file/d/1NRXn7cp3lrR-VylapfTMnoocv7n1ZNyb/preview"
               allow="autoplay"
             ></iframe>
           </div>
         </div>
       </section>
 
-      <!-- Contact -->
       <section id="contact" class="five">
         <div class="container">
           <header>
@@ -402,35 +349,38 @@
                 title="Github"
                 target="_blank"
                 rel="noopener noreferrer"
-                ><span class="label">Github</span></a
               >
+                <span class="label">Github</span>
+              </a>
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/in/bubryanwb/"
+                href="https://www.linkedin.com/in/bryanbuwb/"
                 class="icon brands fa-linkedin"
                 title="LinkedIn"
                 target="_blank"
                 rel="noopener noreferrer"
-                ><span class="label">LinkedIn</span></a
               >
+                <span class="label">LinkedIn</span>
+              </a>
             </li>
           </ul>
           <a
             href="#"
-            id="emailLink"
-            class="icon solid fa-envelope"
-            data-email="bubryanwb@gmail.com"
+            id="copyEmailBtn"
+            class="button primary pulsing-btn icon solid fa-envelope"
           >
-            : bubryanwb@gmail.com
+            Send me an email!
           </a>
+
+          <div id="copyNotification" class="toast-notification">
+            Email copied to clipboard! ✨
+          </div>
         </div>
       </section>
     </div>
 
-    <!-- Footer -->
     <div id="footer">
-      <!-- Copyright -->
       <ul class="copyright">
         <li>&copy; Bryan Bu Wen Bin. All rights reserved.</li>
         <li>Template Design: <a href="http://html5up.net">HTML5 UP</a></li>
@@ -441,7 +391,6 @@
       </ul>
     </div>
 
-    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>

@@ -121,3 +121,29 @@
 				});
 
 })(jQuery);
+
+// ========================== 
+// TYPEWRITER ANIMATION 
+// ========================== 
+
+document.addEventListener("DOMContentLoaded", function() {
+    const textToType = "Artificial Intelligence Student";
+    const typingElement = document.getElementById("typewriter");
+    let characterIndex = 0;
+    const typingSpeed = 80; // Speed in milliseconds (lower is faster)
+
+    function typeWriter() {
+        // Check if there are still letters left to type
+        if (characterIndex < textToType.length) {
+            // Add the next letter to the paragraph
+            typingElement.innerHTML += textToType.charAt(characterIndex);
+            characterIndex++;
+            
+            // Wait a fraction of a second, then type the next letter
+            setTimeout(typeWriter, typingSpeed);
+        }
+    }
+
+    // Start the animation 1 second after the page loads
+    setTimeout(typeWriter, 1000); 
+});
