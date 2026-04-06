@@ -4438,17 +4438,6 @@ input, select, textarea {
     }
 }
 
-.about-me-paragraph {
-	text-align: center;
-}
-
-/* Mobile devices */
-@media (max-width: 600px) {
-    .about-me-paragraph {
-        font-size: 20px ;
-    }
-}
-
 .signature {
 	font-family: 'Allura', cursive;
 }
