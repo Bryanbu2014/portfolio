@@ -3845,7 +3845,7 @@ input, select, textarea {
 					color: white; /* White color for the font */
 					transform: translateX(-50%);
 					text-shadow: 1px 1px 2px #000000; /* Black shadow to make it readable on any background */
-					font-size: 0.8em; /* Adjust based on your design */
+					font-size: 0.5em; /* Adjust based on your design */
 					text-align: center;
 					z-index: 10; /* Ensure it's above other content */
 					}
