@@ -1,0 +1,32 @@
+/* ================================================================
+1. DESKTOP & GENERAL STYLES 
+================================================================
+*/
+
+/* --- Index Page --- */
+.about-me-paragraph {
+    text-align: left;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    line-height: 1.7;
+}
+
+/* --- Piano Page --- */
+.piano-update {
+    color: red;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+/* ================================================================
+2. RESPONSIVE / MOBILE QUERIES 
+================================================================
+*/
+
+@media (max-width: 600px) {
+    /* Index Mobile */
+    .about-me-paragraph {
+        font-size: 20px;
+    }
+}

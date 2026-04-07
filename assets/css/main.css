@@ -3485,9 +3485,19 @@ input, select, textarea {
 
 /* Item */
 
+    /* 1. Add this small rule to make the column wrappers stretch */
+    .col-4 {
+        display: flex;
+    }
+
 	.item {
 		box-shadow: 0 0.05em 0.15em 0 rgba(0, 0, 0, 0.05);
 		margin-bottom: 40px;
+        
+        /* 2. Add these 3 lines so the card fills the stretched column */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
 	}
 
 		.item header {
@@ -3495,6 +3505,9 @@ input, select, textarea {
 			margin: 0;
 			padding: 1em 0 1em 0;
 			font-size: 0.8em;
+            
+            /* 3. Add this 1 line so the white box grows to fill empty space */
+            flex-grow: 1;
 		}
 
 			.item header h3 {
@@ -3787,23 +3800,23 @@ input, select, textarea {
 
 			/* 2. Create the delays so they appear one by one */
 			#top header .art-line-discover {
-				animation-delay: 0.1s;
+				animation-delay: 0.0s;
 			}
 
 			#top header .alt-intro:nth-of-type(2) {
-				animation-delay: 0.4s;
+				animation-delay: 0.2s;
 			}
 
 			#top header .alt-intro:nth-of-type(3) {
-				animation-delay: 0.7s;
+				animation-delay: 0.4s;
 			}
 
 			#top header .alt-intro:nth-of-type(4) {
-				animation-delay: 1.0s;
+				animation-delay: 0.6s;
 			}
 
 			#top footer .button {
-				animation-delay: 1.3s;
+				animation-delay: 2.0s;
 			}
 
 			/* 3. The actual movement and fade instructions */
@@ -3832,7 +3845,7 @@ input, select, textarea {
 					color: white; /* White color for the font */
 					transform: translateX(-50%);
 					text-shadow: 1px 1px 2px #000000; /* Black shadow to make it readable on any background */
-					font-size: 0.8em; /* Adjust based on your design */
+					font-size: 0.5em; /* Adjust based on your design */
 					text-align: center;
 					z-index: 10; /* Ensure it's above other content */
 					}
@@ -4425,17 +4438,6 @@ input, select, textarea {
     }
 }
 
-.about-me-paragraph {
-	text-align: center;
-}
-
-/* Mobile devices */
-@media (max-width: 600px) {
-    .about-me-paragraph {
-        font-size: 20px ;
-    }
-}
-
 .signature {
 	font-family: 'Allura', cursive;
 }
@@ -4561,4 +4563,12 @@ section.one.dark.cover {
     visibility: visible;
     opacity: 1;
     transform: translate(-50%, -10px); /* Gives it a slight upward 'pop' */
+}
+
+/* Make all project images the exact same size and shape */
+#main .item .image.fit img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Makes the image a perfect square */
+    object-fit: cover; /* Fills the square without stretching the picture */
+    object-position: center; /* Keeps the middle of the image in focus */
 }
