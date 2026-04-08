@@ -3889,6 +3889,10 @@ input, select, textarea {
 					justify-content: center;
 					align-items: center;
 				}
+
+				.video-container-hori + p {
+					margin-top: 1.5em;
+				}
 				
 				.responsive-iframe-hori {
 				width: 100%; /* Scale based on parent container */

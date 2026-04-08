@@ -36,7 +36,7 @@
       rel="stylesheet"
     />
     <link rel="manifest" href="../../favicon_io/site.webmanifest" />
-    <title>Coding Projects | Jetson Self Driving Robot Car</title>
+    <title>Coding Projects | PROJECT NAME</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -53,21 +53,18 @@
   </head>
 
   <body class="is-preload">
-    <!-- Header -->
     <div id="header">
       <div class="top">
-        <!-- Logo -->
         <div id="profile-picture">
           <a href="../../">
-            <span class="image avatar48"
-              ><img src="../../images/profile-pic.JPG" alt="Profile Picture"
-            /></span>
+            <span class="image avatar48">
+              <img src="../../images/profile-pic.JPG" alt="Profile Picture" />
+            </span>
             <h1 id="title" class="signature">Bryan Bu Wen Bin</h1>
           </a>
           <p>Artificial Intelligence Student</p>
         </div>
 
-        <!-- Nav -->
         <nav id="nav">
           <ul>
             <li>
@@ -82,7 +79,6 @@
       </div>
 
       <div class="bottom">
-        <!-- Social Icons -->
         <ul class="icons">
           <li>
             <a
@@ -108,18 +104,15 @@
       </div>
     </div>
 
-    <!-- Main -->
     <div id="main">
-      <!-- Intro -->
-      <!-- Coding Project -->
-      <section id="jetbot" class="">
-        <div class="container">
+      <section id="project-details" class="project-section">
+        <div class="container article-container">
           <header>
             <h2>
               Jetson Self Driving Robot Car
               <a
                 href="https://github.com/Bryanbu2014/jetson-self-driving-toy-car"
-                class="icon brands fa-github"
+                class="icon brands fa-github title-icon"
                 title="Github"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -127,7 +120,15 @@
               >
             </h2>
           </header>
-          <h3><u>Introduction</u></h3>
+
+          <img
+            src="../../images/jetson-self-driving-robot-car/jetbot.png"
+            alt="A description of your main image"
+            class="project-image"
+            style="max-width: 400px; display: block; margin: 0 auto"
+          />
+
+          <h3>Introduction</h3>
           <p>
             This is the project in module "Computer Vision" in 4th semester of
             my course,
@@ -143,86 +144,123 @@
             following and obstacle avoidance, which means the robot can drive by
             itself in a designed track and stop before it hits an obstacle.
           </p>
+
+          <a href="#endresult" class="primary-button">Jump to the result!</a>
+
+          <hr class="section-divider" />
+
+          <h3>Motivation: Autonomous Driving</h3>
+
+          <ul class="article-list-dot">
+            <li>
+              Many groundbreaking and innovative inventions in the field of
+              Computer Vision (CV)
+            </li>
+            <li>
+              Interested to see how the theories we learned are translated into
+              code
+            </li>
+            <li>How different each AI models process and predicts images</li>
+          </ul>
+
+          <hr class="section-divider" />
+
+          <h3>Features</h3>
+
+          <ul class="article-list-dot">
+            <li>
+              Stage 1 (road following) → To drive along the designated track
+            </li>
+            <li>
+              Stage 2 (collision avoidance) → To avoid obstacles as the robot
+              drives along the designed track i.e. The robot stops if there is
+              an obstacle ahead
+            </li>
+          </ul>
+
+          <hr class="section-divider" />
+
+          <h3>Methodology</h3>
+          <p style="margin-bottom: 10px">
+            Workflow is concluded generally as follow:
+          </p>
+          <ul class="article-list-number">
+            <li>Data collection</li>
+            <li>Train a model with the data collected</li>
+            <li>Loading the model on the Jetbot</li>
+          </ul>
+
+          <hr class="section-divider" />
+
+          <h3 id="endresult">Result / Demonstration</h3>
+
+          <div class="video-container-hori">
+            <iframe
+              class="responsive-iframe-hori"
+              src="https://drive.google.com/file/d/1yWIgXXsKZiEwRjLGGPnoC9rlUz2KaYSe/preview"
+              allow="autoplay"
+              frameborder="0"
+            ></iframe>
+          </div>
           <p>
-            <span style="color: red"
-              >Click
-              <span style="font-weight: 1000 !important"
-                ><a href="#endresult" id="scrollToTop">here</a></span
+            In this video, the Jetson robot car successfully drives itself
+            around the designated track using its camera to follow the lines. It
+            also detects obstacles in its path and stops automatically to avoid
+            a crash.
+          </p>
+
+          <hr class="section-divider" />
+
+          <h3>Lesson Learned – In a Nutshell</h3>
+
+          <ol class="article-list-number">
+            <li>
+              Hardware:
+              <span style="color: red"
+                >Understanding how to work with limited resources</span
               >
-              to jump to the final result section.</span
-            >
-          </p>
 
-          <h3><u>Motivation: Autonomous Driving</u></h3>
-          <p>
-            👉 Many groundbreaking and innovative inventions in the field of
-            Computer Vision (CV) <br />
-            👉 Interested to see how the theories we learned are translated into
-            code <br />
-            👉 How different each AI models process and predicts images <br />
-          </p>
+              <ul>
+                <li>
+                  Robot CPU is the biggest hardware limitation – Slow
+                  computation
+                </li>
+                <li>Motor limitations</li>
+              </ul>
+            </li>
 
-          <h3><u>Features</u></h3>
-          <p>
-            <b>🤖 Stage 1 (Road Following) 🤖</b> <br />
-            To drive along the designed track <br />
-            <b>🤖 Stage 2 (Collision Avoidance) 🤖</b> <br />
-            To avoid obstacles as the robot drives along the designed track i.e.
-            The robot stops if there is an obstacle ahead
-          </p>
+            <li>
+              Software:
+              <span style="color: red"
+                >Understand how to read software parameters through
+                documentations</span
+              >
 
-          <h3><u>Methodology</u></h3>
-          <p>
-            Workflow is concluded generally as follow: <br />
-            1. Data collection <br />
-            2. Train a model with the data collected <br />
-            3. Loading the model on the Jetbot
-          </p>
+              <ul>
+                <li>
+                  Libraries break apart easily by installing one package –
+                  Requires a re-setup
+                </li>
+                <li>Third party – Only resources from Waveshare</li>
+                <li>
+                  Libraries are constantly updating – Check if parameters are
+                  filled correctly
+                </li>
+              </ul>
+            </li>
 
-          <section id="endresult" class="">
-            <h3><u>Result / Demonstration</u></h3>
-            <div class="video-container-hori">
-              <iframe
-                class="responsive-iframe-hori"
-                src="https://drive.google.com/file/d/1yWIgXXsKZiEwRjLGGPnoC9rlUz2KaYSe/preview"
-                allow="autoplay"
-                frameborder="0"
-              ></iframe>
-            </div>
-          </section>
+            <li>
+              Environment:
+              <span style="color: red"
+                >Understand how the contrast in environment plays a role</span
+              >
 
-          <h3><u>Lessons Learned — In a Nutshell</u></h3>
-          <p>
-            <b>1. Hardware</b>:
-            <span style="color: red"
-              >Understanding how to work with limited resources</span
-            ><br />
-            👉 Robot CPU is the biggest hardware limitation — Slow Computation
-            <br />
-            👉 Motor limitations <br />
-          </p>
-
-          <p>
-            <b>2. Software</b>:
-            <span style="color: red"
-              >Understand how to read software parameters through
-              documentations</span
-            ><br />
-            👉 Libraries break apart easily by installing one package — Requires
-            a re-setup <br />
-            👉 Third party — Only resources from Waveshare <br />
-            👉 Libraries are constantly updating — Check if parameters are
-            filled correctly <br />
-          </p>
-
-          <p>
-            <b>3. Environment</b>:
-            <span style="color: red"
-              >Understand how the contrast in environment plays a role</span
-            ><br />
-            👉 High contrast envieonment is recommended <br />
-            👉 Too much light can interfere wih the decision making <br />
-          </p>
+              <ul>
+                <li>High contrast envieonment is recommended</li>
+                <li>Too much light can interfere wih the decision making</li>
+              </ul>
+            </li>
+          </ol>
 
           <a
             href="#"
@@ -230,28 +268,24 @@
               window.history.back();
               return false;
             "
-            class="standalone-link"
+            class="article-return-button"
           >
-            RETURN
+            <span>&larr;</span> RETURN
           </a>
         </div>
       </section>
     </div>
 
-    <!-- Footer -->
     <div id="footer">
-      <!-- Copyright -->
       <ul class="copyright">
-        <li>&copy; Bryan Bu Wen Bin. All rights reserved.</li>
+        <li>&copy; Your Name Here. All rights reserved.</li>
         <li>Template Design: <a href="http://html5up.net">HTML5 UP</a></li>
         <li>
-          Further designed and implemented by
-          <a href="../../#about">me</a>.
+          Further designed and implemented by <a href="../../#about">me</a>.
         </li>
       </ul>
     </div>
 
-    <!-- Scripts -->
     <script src="../js/jquery.min.js"></script>
     <script src="../js/jquery.scrolly.min.js"></script>
     <script src="../js/jquery.scrollex.min.js"></script>
@@ -259,6 +293,6 @@
     <script src="../js/breakpoints.min.js"></script>
     <script src="../js/util.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/cv-jetbot.js"></script>
+    <script src="../js/custom-script.js"></script>
   </body>
 </html>
