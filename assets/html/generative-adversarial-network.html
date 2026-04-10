@@ -140,7 +140,7 @@
 
           <h3>Introduction</h3>
           <p>
-            This page records the takeways from
+            This page records the takeaways from
             <a
               href="https://www.manning.com/books/deep-learning-with-python-second-edition?a_aid=keras&a_bid=76564dff"
               target="_blank"
@@ -168,10 +168,10 @@
                   >keras.utils.image_dataset_from_directory</span
                 ></i
               ></a
-            >. With this function the images are resized to 64x64 and splitted
-            into batches of 32 images each. Once this step is done,
-            normalization is also performed to convert RGB values from range [0,
-            255] to [0, 1], ensuring better stability and performance.
+            >. With this function the images are resized to 64x64 and split into
+            batches of 32 images each. Once this step is done, normalization is
+            also performed to convert RGB values from range [0, 255] to [0, 1],
+            ensuring better stability and performance.
           </p>
 
           <div style="margin-bottom: 1em">
@@ -220,7 +220,7 @@
             vector and slowly transforms it into a realistic image through a
             series of neural network layers.
           </p>
-          <p>Below are the explanation of the generator's architecture.</p>
+          <p>Below is the explanation of the generator's architecture.</p>
           <div
             style="
               background-color: #ffff00;
@@ -283,7 +283,7 @@
             time.<br /><br />
             Activation function for these transposed convolutional layer is
             LeakyReLU. LeakyReLU is a variation of ReLU. The reason why
-            LeakyReLU is chosen is that it mitigates the dying reLU problem by
+            LeakyReLU is chosen is that it mitigates the dying ReLU problem by
             allowing small gradients for negative input. It tries to maintain
             all the neurons active.
           </p>
@@ -407,7 +407,7 @@
           </div>
           <p>
             Lastly we have dense layer with sigmoid activation function. Sigmoid
-            activation function is suitable for binary classfication, which
+            activation function is suitable for binary classification, which
             would be the need of our case, as it outputs values between 0 and 1,
             representing fake and real.
           </p>
@@ -422,7 +422,7 @@
             >
             class. We initialize the GAN class / model with a discriminator, a
             generator, and the dimensionality of the latent space. It also
-            initializes metrics to track the discriminator and decorator losses,
+            initializes metrics to track the discriminator and generator losses,
             as it is crucial for monitoring the training process and ensuring
             both networks are improving over time.
           </p>
@@ -450,7 +450,7 @@
 
           <h3 id="training-and-inference">Training and Inference</h3>
           <p>
-            During the training, Adam Optimzer is applied to both generator and
+            During the training, Adam Optimizer is applied to both generator and
             discriminator networks. Every epoch took about 2~3 minutes with
             Google A100 GPU.
           </p>
@@ -610,7 +610,7 @@
             />
           </div>
           <p>
-            Out of curiousity, I trained for one more epoch, and there you go,
+            Out of curiosity, I trained for one more epoch, and there you go,
             the generated images look good to me!
           </p>
 
