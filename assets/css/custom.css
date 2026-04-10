@@ -67,7 +67,7 @@ h2 .title-icon {
 .project-image {
   width: 100%;
   height: auto;
-  border-radius: 8px; 
+  border-radius: 50px; 
   margin-bottom: 0em;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
 }
@@ -189,6 +189,10 @@ h2 .title-icon {
   transform: translateX(-10px); 
 }
 
+/* Make the Jetson page background match the Z3-Solver page */
+#main > section.project-section {
+  background-color: #f5fafa;
+}
 
 /* ================================================================
    2. RESPONSIVE / MOBILE QUERIES 

@@ -1,9 +1,4 @@
 <!doctype html>
-<!--
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
   <head>
     <link
@@ -53,21 +48,18 @@
   </head>
 
   <body class="is-preload">
-    <!-- Header -->
     <div id="header">
       <div class="top">
-        <!-- Logo -->
         <div id="profile-picture">
           <a href="../../">
-            <span class="image avatar48"
-              ><img src="../../images/profile-pic.JPG" alt="Profile Picture"
-            /></span>
+            <span class="image avatar48">
+              <img src="../../images/profile-pic.JPG" alt="Profile Picture" />
+            </span>
             <h1 id="title" class="signature">Bryan Bu Wen Bin</h1>
           </a>
           <p>Artificial Intelligence Student</p>
         </div>
 
-        <!-- Nav -->
         <nav id="nav">
           <ul>
             <li>
@@ -82,7 +74,6 @@
       </div>
 
       <div class="bottom">
-        <!-- Social Icons -->
         <ul class="icons">
           <li>
             <a
@@ -108,18 +99,15 @@
       </div>
     </div>
 
-    <!-- Main -->
     <div id="main">
-      <!-- Intro -->
-      <!-- Coding Project -->
-      <section id="codingprojects" class="six">
-        <div class="container">
+      <section id="project-details" class="project-section">
+        <div class="container article-container">
           <header>
             <h2>
               Generative Adversarial Network
               <a
                 href="https://github.com/Bryanbu2014/seminar-ki-gan-demo"
-                class="icon brands fa-github"
+                class="icon brands fa-github title-icon"
                 title="Github"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -127,101 +115,46 @@
               >
             </h2>
           </header>
-          <img
-            class="general-img"
-            src="../../images/generative-adversarial-network/gan-overview.png"
-          />
-          <br />
-          First of all, thank you for visiting and reading this page. If there
-          is anything mentioned wrongly in the upcoming sections, please do not
-          hesitate to correct me! You can find my contact somewhere in the page.
-          <br />
-          You may refer to my source code
-          <a
-            href="https://github.com/Bryanbu2014/seminar-ki-gan-demo/blob/dev/code-demo-gan.ipynb"
-            ,
-            target="_blank"
-            >here</a
-          >.
-          <br />
-          <br />
 
-          <h3><u>Introduction</u></h3>
-          This page records the takeways from
-          <a
-            href="https://www.manning.com/books/deep-learning-with-python-second-edition?a_aid=keras&a_bid=76564dff"
-            ,
-            target="_blank"
-            >Deep Learning with Python, 2nd Edition (Manning Publications)</a
-          >, chapter 12 Generative Deep Learning, section Generative Adversarial
-          Network. <br /><br />
-          The overview of the workflow will be organized in this way.
+          <img
+            src="../../images/generative-adversarial-network/gan-overview.png"
+            alt=""
+            class="project-image"
+          />
 
           <style>
-            .box-data-prep {
-              max-width: 100%;
-              height: auto;
-              width: 100%;
-              max-width: 800px;
-              border: 5px solid #000;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin: 50px auto;
-              font-weight: bold;
-            }
-
-            .highlight {
-              background-color: yellow;
-              color: black;
-            }
-
-            .box-generator {
-              width: 300px;
-              height: 100px;
-              border: 5px solid #000;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin: 10px auto;
-              font-weight: bold;
-              background-color: yellow;
-              margin-left: auto;
-              margin-right: auto;
-            }
-
-            .before-preprocessing {
-              max-width: 100%; /* Ensures the image doesn't exceed the width of its container */
-              height: auto; /* Maintains the aspect ratio */
-              width: 100%; /* Allows the image to resize according to its original aspect ratio */
-              max-width: 330px;
-            }
-
-            .after-preprocessing {
-              max-width: 100%; /* Ensures the image doesn't exceed the width of its container */
-              height: auto; /* Maintains the aspect ratio */
-              width: 100%; /* Allows the image to resize according to its original aspect ratio */
-              max-width: 400px;
-            }
-
-            .general-img {
-              max-width: 100%; /* Ensures the image doesn't exceed the width of its container */
-              height: auto; /* Maintains the aspect ratio */
-              width: 100%; /* Allows the image to resize according to its original aspect ratio */
-            }
-
             .result {
-              margin-top: -3%;
+              display: flex;
+              flex-wrap: nowrap; /* This is the magic rule that stops them from getting pushed down */
+              gap: 10px; /* This adds a neat 10px space between each image */
+              margin-top: 20px;
+              margin-bottom: 20px;
+            }
+
+            .result img {
+              flex: 1; /* This tells all 5 images to share the space perfectly equally */
+              width: 100%; /* Ensures the image fills its designated space */
+              height: auto; /* Keeps the pictures from getting stretched out of shape */
             }
           </style>
 
-          <div class="box-data-prep">
-            Dataset downloading and preprocessing<br />
-            Generator and discriminator networks setup<br />
-            GAN model setup<br />
-            Training and inference
-          </div>
-          <h3><u>Dataset Downloading and Preprocessing</u></h3>
+          <h3>Introduction</h3>
+          <p>
+            This page records the takeaways from
+            <a
+              href="https://www.manning.com/books/deep-learning-with-python-second-edition?a_aid=keras&a_bid=76564dff"
+              target="_blank"
+              >Deep Learning with Python, 2nd Edition (Manning Publications)</a
+            >, chapter 12 Generative Deep Learning, section Generative
+            Adversarial Network.
+          </p>
+          <a href="#training-and-inference" class="primary-button"
+            >Jump to the result!</a
+          >
+
+          <hr class="section-divider" />
+
+          <h3>Dataset Downloading and Preprocessing</h3>
           <p>
             Before I began hands-on work, I connected my Google Drive to my
             Notebook to facilitate file saving and resuming. In this experiment,
@@ -229,41 +162,57 @@
             downloaded and unzipped, we can proceed with converting the dataset
             into a TensorFlow dataset. This allows all operations to be
             performed using Tensorflow. The Keras API provides a function called
-            <a href="https://keras.io/api/data_loading/image/" , target="_blank"
+            <a href="https://keras.io/api/data_loading/image/" target="_blank"
               ><i
                 ><span class="highlight"
                   >keras.utils.image_dataset_from_directory</span
                 ></i
               ></a
-            >. With this function the images are resized to 64x64 and splitted
-            into batches of 32 images each. Once this step is done,
-            normalization is also performed to convert RGB values from range [0,
-            255] to [0, 1], ensuring better stability and performance.
-            <br />
-            <br />
-            Below are two sample images from the dataset, with the left ones
-            shown before image preprocessing and the right ones after. (Left =
-            Top, Right = Bottom in case you are viewing from mobile devices)
-            <br />
-            <img
-              class="before-preprocessing"
-              src="../../images/generative-adversarial-network/before-preprocessing.png"
-              ,
-              alt="before-preprocessing"
-            />
-            <img
-              class="after-preprocessing"
-              src="../../images/generative-adversarial-network/after-preprocessing.png"
-              ,
-              alt="after-preprocessing"
-            />
-            <br />
+            >. With this function the images are resized to 64x64 and split into
+            batches of 32 images each. Once this step is done, normalization is
+            also performed to convert RGB values from range [0, 255] to [0, 1],
+            ensuring better stability and performance.
+          </p>
+
+          <div style="margin-bottom: 1em">
+            <p>
+              Below are two sample images from the dataset, with the left ones
+              shown before image preprocessing and the right ones after. (Left =
+              Top, Right = Bottom in case you are viewing from mobile devices)
+            </p>
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+              "
+            >
+              <img
+                src="../../images/generative-adversarial-network/before-preprocessing.png"
+                alt="before-preprocessing"
+                style="max-width: 100%; height: auto"
+              />
+              <img
+                src="../../images/generative-adversarial-network/after-preprocessing.png"
+                alt="after-preprocessing"
+                style="max-width: 100%; height: auto"
+              />
+            </div>
+          </div>
+
+          <p>
             Obviously, we can notice that the image on the right is much more
             blurry than the one on the left, as it is resized to 64x64. However,
             due to restrictions on computational power, dealing with an image
             size of 64x64 didn't seem to be a bad idea.
           </p>
-          <h3><u>Generator Network</u></h3>
+
+          <hr class="section-divider" />
+
+          <h3>Generator Network</h3>
           <p>
             The generator's role in a GAN is to create fake images that are as
             realistic as possible. It aims to fool the discriminator into
@@ -271,20 +220,62 @@
             vector and slowly transforms it into a realistic image through a
             series of neural network layers.
           </p>
-          <p>Below are the explanation of the generator's architecture.</p>
-          <div class="box-generator">Dense</div>
+          <p>Below is the explanation of the generator's architecture.</p>
+          <div
+            style="
+              background-color: #ffff00;
+              border: 3px solid #000;
+              color: #6f42c1;
+              font-weight: bold;
+              font-size: 0.8em;
+              padding: 15px 40px;
+              width: fit-content;
+              margin: 20px auto;
+              text-align: center;
+            "
+          >
+            Dense
+          </div>
           <p>
             First we have dense layer. In this layer, the goal is to increase
             the data's dimensionality to have enough information to form an
             image. This also sets up the initial structure that will be refined
             by the next few layers.
           </p>
-          <div class="box-generator">Reshape</div>
+          <div
+            style="
+              background-color: #ffff00;
+              border: 3px solid #000;
+              color: #6f42c1;
+              font-weight: bold;
+              font-size: 0.8em;
+              padding: 15px 40px;
+              width: fit-content;
+              margin: 20px auto;
+              text-align: center;
+            "
+          >
+            Reshape
+          </div>
           <p>
             This layer reshapes the vector from the dense layer into 3D tensor
             format, which is normally required for convolutional operations.
           </p>
-          <div class="box-generator">Conv2DTranspose + LeakyReLU</div>
+          <div
+            style="
+              background-color: #ffff00;
+              border: 3px solid #000;
+              color: #6f42c1;
+              font-weight: bold;
+              font-size: 0.8em;
+              padding: 15px 40px;
+              width: fit-content;
+              margin: 20px auto;
+              text-align: center;
+            "
+          >
+            Conv2DTranspose + LeakyReLU
+          </div>
           <p>
             We proceed with transposed convolutional layer, or so called
             deconvolutional layer. This upsampling increases the spatial
@@ -292,97 +283,195 @@
             time.<br /><br />
             Activation function for these transposed convolutional layer is
             LeakyReLU. LeakyReLU is a variation of ReLU. The reason why
-            LeakyReLU is chosen is that it mitigates the dying reLU problem by
+            LeakyReLU is chosen is that it mitigates the dying ReLU problem by
             allowing small gradients for negative input. It tries to maintain
             all the neurons active.
           </p>
-          <img
-            class="general-img"
-            src="../../images/generative-adversarial-network/relu-vs-leakyrelu.png"
-            ,
-            alt="relu-vs-leakyrelu"
-          />
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 20px;
+              margin-top: 20px;
+              margin-bottom: 20px;
+            "
+          >
+            <img
+              src="../../images/generative-adversarial-network/relu-vs-leakyrelu.png"
+              alt="relu-vs-leakyrelu"
+              style="max-width: 100%; height: auto"
+            />
+          </div>
           <p>Above are the comparison between ReLU and LeakyReLU.</p>
-          <div class="box-generator">Conv2D</div>
+          <div
+            style="
+              background-color: #ffff00;
+              border: 3px solid #000;
+              color: #6f42c1;
+              font-weight: bold;
+              font-size: 0.8em;
+              padding: 15px 40px;
+              width: fit-content;
+              margin: 20px auto;
+              text-align: center;
+            "
+          >
+            Conv2D
+          </div>
           <p>This layer produces the final output image.</p>
 
-          <h3><u>Discriminator Network</u></h3>
+          <hr class="section-divider" />
+
+          <h3>Discriminator Network</h3>
           <p>
             The discriminator's job is to classify whether the data generated
             from the generator network as either real or fake. Of course, forget
             to mention, for both networks we all start from an input layer.
           </p>
-          <div class="box-generator">Conv2D + LeakyReLU</div>
+          <div
+            style="
+              background-color: #ffff00;
+              border: 3px solid #000;
+              color: #6f42c1;
+              font-weight: bold;
+              font-size: 0.8em;
+              padding: 15px 40px;
+              width: fit-content;
+              margin: 20px auto;
+              text-align: center;
+            "
+          >
+            Conv2D + LeakyReLU
+          </div>
           <p>
             Convolutional layers to detect features, such as edges, textures,
             and other important aspects of the images. Similar to the generator
             network, we use LeakyReLU as the activation function.
           </p>
-          <div class="box-generator">Flatten</div>
+          <div
+            style="
+              background-color: #ffff00;
+              border: 3px solid #000;
+              color: #6f42c1;
+              font-weight: bold;
+              font-size: 0.8em;
+              padding: 15px 40px;
+              width: fit-content;
+              margin: 20px auto;
+              text-align: center;
+            "
+          >
+            Flatten
+          </div>
           <p>
             This layer converts the 3D tensor into a 1D vector. This transition
             is necessary because the next layer, which is the dense layer
             requires a 1D input.
           </p>
-          <div class="box-generator">Dropout</div>
+          <div
+            style="
+              background-color: #ffff00;
+              border: 3px solid #000;
+              color: #6f42c1;
+              font-weight: bold;
+              font-size: 0.8em;
+              padding: 15px 40px;
+              width: fit-content;
+              margin: 20px auto;
+              text-align: center;
+            "
+          >
+            Dropout
+          </div>
           <p>
             Dropout layer, a regularization technique. It leaves some neurons 0,
             or in simple words, deactivates it to prevent overfitting. This
             forces the network to learn more robust features that are not
             dependent on some specific neurons.
           </p>
-          <div class="box-generator">Dense</div>
+          <div
+            style="
+              background-color: #ffff00;
+              border: 3px solid #000;
+              color: #6f42c1;
+              font-weight: bold;
+              font-size: 0.8em;
+              padding: 15px 40px;
+              width: fit-content;
+              margin: 20px auto;
+              text-align: center;
+            "
+          >
+            Dense
+          </div>
           <p>
             Lastly we have dense layer with sigmoid activation function. Sigmoid
-            activation function is suitable for binary classfication, which
+            activation function is suitable for binary classification, which
             would be the need of our case, as it outputs values between 0 and 1,
             representing fake and real.
           </p>
-          <h3><u>GAN Model Setup</u></h3>
+
+          <hr class="section-divider" />
+
+          <h3>GAN Model Setup</h3>
           <p>
             In this section, we have a GAN class that extends the
-            <a href="https://keras.io/api/models/model/" , target="_blank"
+            <a href="https://keras.io/api/models/model/" target="_blank"
               ><i><span class="highlight">keras.Model</span></i></a
             >
             class. We initialize the GAN class / model with a discriminator, a
             generator, and the dimensionality of the latent space. It also
-            initializes metrics to track the discriminator and decorator losses,
+            initializes metrics to track the discriminator and generator losses,
             as it is crucial for monitoring the training process and ensuring
-            both networks are improving over time.<br /><br />
+            both networks are improving over time.
+          </p>
+          <p>
             First, we will start with discriminator training. The generator uses
             random latent vectors to generate fake images, then these images are
             combined with the real ones into a batch. The images are labelled, 0
             for the fake ones and 1 for the real ones. To avoid overfitting, we
             will have to add some noise to prevent the discriminator from
-            becoming too confident in its predictions.<br /><br />
+            becoming too confident in its predictions.
+          </p>
+          <p>
             Next, as for generator training, new set of different latent vectors
             are generated and passed through the generator to create fake
             images. The discriminator then will evaluate these generated images,
             and the generator's loss based on how well these fake images can
-            fool the discriminator is calculated. <br /><br />
+            fool the discriminator is calculated.
+          </p>
+          <p>
             Both networks' weights are constantly being updated during the
             training.
           </p>
-          <h3><u>Training and Inference</u></h3>
+
+          <hr class="section-divider" />
+
+          <h3 id="training-and-inference">Training and Inference</h3>
           <p>
-            During the training, Adam Optimzer is applied to both generator and
+            During the training, Adam Optimizer is applied to both generator and
             discriminator networks. Every epoch took about 2~3 minutes with
-            Google A100 GPU. <br /><br />
+            Google A100 GPU.
+          </p>
+          <p>
             I recorded the training losses of both networks from epoch 36 to
-            100. <br />
-            <img
-              class="general-img"
-              src="../../images/generative-adversarial-network/loss-graph.png"
-              ,
-              alt="loss-graph"
-            /><br />
+            100.
+          </p>
+          <img
+            class="general-img"
+            src="../../images/generative-adversarial-network/loss-graph.png"
+            alt="loss-graph"
+            style="width: 100%"
+          />
+          <p>
             From this graph, we can observe that the training of the generator
             didn't go well. Starting around the 50th epoch, the loss began
             increasing significantly, indicating that the model is performing
             poorly. However, the training of the discriminator seems to be
-            heading in the right direction.<br /><br />
-            Below are the images generated on certain epochs
+            heading in the right direction.
           </p>
+          <p>Below are the images generated on certain epochs.</p>
           <p>
             <u><span style="font-weight: bold">Epoch 1</span></u>
           </p>
@@ -521,9 +610,11 @@
             />
           </div>
           <p>
-            Out of curiousity, I trained for one more epoch, and there you go,
+            Out of curiosity, I trained for one more epoch, and there you go,
             the generated images look good to me!
           </p>
+
+          <hr class="section-divider" />
 
           <a
             href="#"
@@ -531,32 +622,24 @@
               window.history.back();
               return false;
             "
-            class="standalone-link"
+            class="article-return-button"
           >
-            RETURN
+            <span>&larr;</span> RETURN
           </a>
-
-          <div class="row">
-            <div class="col-4 col-12-mobile"></div>
-          </div>
         </div>
       </section>
     </div>
 
-    <!-- Footer -->
     <div id="footer">
-      <!-- Copyright -->
       <ul class="copyright">
         <li>&copy; Bryan Bu Wen Bin. All rights reserved.</li>
         <li>Template Design: <a href="http://html5up.net">HTML5 UP</a></li>
         <li>
-          Further designed and implemented by
-          <a href="../../#about">me</a>.
+          Further designed and implemented by <a href="../../#about">me</a>.
         </li>
       </ul>
     </div>
 
-    <!-- Scripts -->
     <script src="../js/jquery.min.js"></script>
     <script src="../js/jquery.scrolly.min.js"></script>
     <script src="../js/jquery.scrollex.min.js"></script>
@@ -564,6 +647,6 @@
     <script src="../js/breakpoints.min.js"></script>
     <script src="../js/util.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/custom-script.js"></script>
   </body>
 </html>
