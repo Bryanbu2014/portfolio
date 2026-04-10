@@ -36,7 +36,7 @@
       rel="stylesheet"
     />
     <link rel="manifest" href="../../favicon_io/site.webmanifest" />
-    <title>Coding Projects | Grid Wars</title>
+    <title>Coding Projects | PROJECT NAME</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -52,22 +52,21 @@
     </style>
   </head>
 
+  <style></style>
+
   <body class="is-preload">
-    <!-- Header -->
     <div id="header">
       <div class="top">
-        <!-- Logo -->
         <div id="profile-picture">
           <a href="../../">
-            <span class="image avatar48"
-              ><img src="../../images/profile-pic.JPG" alt="Profile Picture"
-            /></span>
+            <span class="image avatar48">
+              <img src="../../images/profile-pic.JPG" alt="Profile Picture" />
+            </span>
             <h1 id="title" class="signature">Bryan Bu Wen Bin</h1>
           </a>
           <p>Artificial Intelligence Student</p>
         </div>
 
-        <!-- Nav -->
         <nav id="nav">
           <ul>
             <li>
@@ -78,7 +77,6 @@
       </div>
 
       <div class="bottom">
-        <!-- Social Icons -->
         <ul class="icons">
           <li>
             <a
@@ -104,18 +102,15 @@
       </div>
     </div>
 
-    <!-- Main -->
     <div id="main">
-      <!-- Intro -->
-      <!-- Coding Project -->
-      <section id="codingprojects" class="six">
-        <div class="container">
+      <section id="project-details" class="project-section">
+        <div class="container article-container">
           <header>
             <h2>
               Grid Wars
               <a
                 href="https://github.com/Bryanbu2014/anonymous-gridwars"
-                class="icon brands fa-github"
+                class="icon brands fa-github title-icon"
                 title="Github"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -123,6 +118,15 @@
               >
             </h2>
           </header>
+
+          <img
+            src="../../images/grip-wars.webp"
+            alt="A description of your main image"
+            class="project-image"
+            style="max-width: 400px; display: block; margin: 0 auto"
+          />
+
+          <h3>Introduction</h3>
           <p>
             I, along with my teammates, formed a group of four and participated
             in the
@@ -134,25 +138,19 @@
               ><strong>Deggendorf Institute of Technology</strong></a
             >
             from March 11th to 14th.
-
-            <br />
-            <br />
-
+          </p>
+          <p>
             The hackathon hosted by the event featured a game named "Grid Wars".
             The gameplay of which is briefly showcased below. We are team
             <strong>Anonymous</strong>, the one in red. One of the reasons I am
             showcasing this match is because I appreciate how the blue team
             opens up the grid beautifully as well!
-
-            <br />
           </p>
-
-          <div class="image featured">
-            <img src="../../images/grid-wars/showcase-1.gif" alt="" />
-          </div>
-
-          <br />
-
+          <img
+            src="../../images/grid-wars/showcase-1.gif"
+            alt=""
+            style="width: 100%; border-radius: 50px"
+          />
           <p>
             The game concept is particularly interesting to me. Essentially, the
             game's core objective is to either conquer the 50x50 grid or have
@@ -160,28 +158,38 @@
             game.
           </p>
 
-          <h3><u>Instruction</u></h3>
-          <p>
-            1. 1vs1 matches between 2 bots in a 50x50 cells board. <br />
-            2. Bots start at a random cell with 100 troop units. <br />
-            3. Bots take alternating turns to move units. <br />
-            4. Bots can only move up, down, left, right. I.e., no diagonals.
-            <br />
-            5. You can move into your own cells, the population will be merged.
-            <br />
-            6. If two bots meet in the same cell, they fight! <br />
-            7. Surviving units = attacking - defending units. <br />
-            8. Population increased by 10% every round (i.e., 2 turns), and it
-            is rounded to nearest integer. <br />
-            9. Maximum population per cell is 100. <br />
-          </p>
+          <hr class="section-divider" />
 
-          <h3><u>Result</u></h3>
+          <h3>Instruction</h3>
+          <ul class="article-list-number">
+            <li>1vs1 matches between 2 bots in a 50x50 cells board.</li>
+            <li>Bots start at a random cell with 100 troop units.</li>
+            <li>Bots take alternating turns to move units.</li>
+            <li>
+              Bots can only move up, down, left, right. I.e., no diagonals.
+            </li>
+            <li>
+              You can move into your own cells, the population will be merged.
+            </li>
+            <li>If two bots meet in the same cell, they fight!</li>
+            <li>Surviving units = attacking - defending units.</li>
+            <li>
+              Population increased by 10% every round (i.e., 2 turns), and it is
+              rounded to nearest integer.
+            </li>
+            <li>Maximum population per cell is 100.</li>
+          </ul>
+
+          <hr class="section-divider" />
+
+          <h3>Result</h3>
           <p>
             Our team, "Anonymous", won a second place in the hackathon! The
             intensity and excitement of developing this project alongside my
             team marked this an unforgettable adventure to me.
           </p>
+
+          <hr class="section-divider" />
 
           <a
             href="#"
@@ -189,32 +197,24 @@
               window.history.back();
               return false;
             "
-            class="standalone-link"
+            class="article-return-button"
           >
-            RETURN
+            <span>&larr;</span> RETURN
           </a>
-
-          <div class="row">
-            <div class="col-4 col-12-mobile"></div>
-          </div>
         </div>
       </section>
     </div>
 
-    <!-- Footer -->
     <div id="footer">
-      <!-- Copyright -->
       <ul class="copyright">
         <li>&copy; Bryan Bu Wen Bin. All rights reserved.</li>
         <li>Template Design: <a href="http://html5up.net">HTML5 UP</a></li>
         <li>
-          Further designed and implemented by
-          <a href="../../#about">me</a>.
+          Further designed and implemented by <a href="../../#about">me</a>.
         </li>
       </ul>
     </div>
 
-    <!-- Scripts -->
     <script src="../js/jquery.min.js"></script>
     <script src="../js/jquery.scrolly.min.js"></script>
     <script src="../js/jquery.scrollex.min.js"></script>
@@ -222,6 +222,6 @@
     <script src="../js/breakpoints.min.js"></script>
     <script src="../js/util.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/custom-script.js"></script>
   </body>
 </html>
