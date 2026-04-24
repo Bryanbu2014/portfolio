@@ -108,18 +108,18 @@
     <div id="main">
       <!-- Intro -->
       <!-- Coding Project -->
-      <section id="codingprojects" class="six">
-        <div class="container">
+      <section id="project-details" class="project-section">
+        <div class="container article-container">
           <header>
             <h2>
               Cinema Chatbot
               <a
                 href="https://github.com/Bryanbu2014/cinema-chatbot"
-                class="icon brands fa-github"
+                class="icon brands fa-github title-icon"
                 title="Github"
                 target="_blank"
                 rel="noopener noreferrer"
-                ><span class="label">Cinema Chatbot</span></a
+                ><span class="label">Github</span></a
               >
             </h2>
           </header>
@@ -127,61 +127,65 @@
           <p>
             This is the project that was done during my course of study. In this
             project, a friend and I were asked to develop a simple chatbot using
-            the
-            <a href="https://rasa.com/" , target="_blank">Rasa</a> framework.
-            <br />
-            <br />
+            the <a href="https://rasa.com/" target="_blank">Rasa</a> framework.
+          </p>
+          <p>
             There were initially a few ideas that came to our mind, such as
             "Munich Travel Partner" and "School Canteen Assistant." But in the
             end, we decided to go with the "Cinema Chatbot Assistant," which
             could be a website or an application.
-            <br />
           </p>
-          <h3><u>Cinema Chatbot</u></h3>
+
+          <hr class="section-divider" />
+
+          <h3>Cinema Chatbot</h3>
           <p>
             Yeap, from the name itself, I believe you can already tell; it's a
             chatbot that assists customers in every process at the cinema. Users
             are expected to ask the chatbot anything related to the cinema, such
-            as: <br />
-            👉 Descriptions of movies <br />
-            👉 Which movie is available on a particular day <br />
-            👉 The seating plan <br />
-            👉 The show schedule <br />
-            👉 Ticket prices <br />
+            as:
+          </p>
+          <ul class="article-list-dot">
+            <li>Descriptions of movies</li>
+            <li>Which movie is available on a particular day</li>
+            <li>The seating plan</li>
+            <li>The show schedule</li>
+            <li>Ticket prices</li>
+          </ul>
+          <p>
             Of course, we didn't actually have access to a real database, so we
             designed and used our own "mini-database," which consists of only
-            very little movies and their information. <br />
-            For more technical details, please refer to my
-            <a
-              href="https://github.com/Bryanbu2014/cinema-chatbot"
-              ,
-              target="_blank"
-              >Github repository</a
-            >.
+            very little movies and their information.
           </p>
-          <h3><u>Short Demo</u></h3>
+          <p>
+            For more technical details, please refer to my
+            <a href="https://github.com/Bryanbu2014/cinema-chatbot" target="_blank">Github repository</a>.
+          </p>
+
+          <hr class="section-divider" />
+
+          <h3>Short Demo</h3>
           <p>
             This demo illustrates how a user can inquire about movie
             availability.
           </p>
-          <div class="image featured">
-            <img src="../../images/cinema-chatbot/cinema-chatbot.gif" alt="" />
-          </div>
-          <br />
+          <img
+            src="../../images/cinema-chatbot/cinema-chatbot.gif"
+            alt="Cinema Chatbot Demo"
+            class="project-image"
+          />
+
+          <hr class="section-divider" />
           <a
             href="#"
             onclick="
               window.history.back();
               return false;
             "
-            class="standalone-link"
+            class="article-return-button"
           >
-            RETURN
+            <span>&larr;</span> RETURN
           </a>
-
-          <div class="row">
-            <div class="col-4 col-12-mobile"></div>
-          </div>
         </div>
       </section>
     </div>
@@ -207,6 +211,6 @@
     <script src="../js/breakpoints.min.js"></script>
     <script src="../js/util.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/custom-script.js"></script>
   </body>
 </html>
