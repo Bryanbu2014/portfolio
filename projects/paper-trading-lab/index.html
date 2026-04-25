@@ -37,31 +37,62 @@
                 <p class="changelog-subtitle">A simulated market environment for backtesting and evaluating trading strategies.</p>
                 <div class="hero-btns">
                     <a href="https://github.com/Bryanbu2014/paper-trading-lab" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> View Source</a>
+                    <a href="https://paper-trading-lab.streamlit.app/" class="btn btn-primary" target="_blank"><i class="fas fa-rocket"></i> Open in Streamlit</a>
                 </div>
             </header>
 
-            <img src="../../images/paper-trading-lab/paper-trading-lab-logo.png" alt="Paper Trading Lab" class="article-image reveal active">
+            <img src="../../images/paper-trading-lab/dashboard.png" alt="Paper Trading Lab" class="article-image reveal paper-trading-lab-cover clickable-image" title="Click to enlarge">
 
             <div class="article-content">
                 <h3 class="reveal active">Introduction</h3>
                 <p class="reveal active">
-                    The Paper Trading Lab is a risk-free, simulated market environment designed for testing and developing trading strategies. By leveraging real-time data, comprehensive fundamental analysis tools, and interactive dashboards, it provides an immersive platform for understanding market dynamics without the financial risk.
+                    This is a clean, fast virtual stock trading terminal built with Python and Streamlit. 
+                </p>
+                <p class="reveal active">
+                    Paper Trading Lab allows users to practice stock trading using live market prices without risking real money. Users get a virtual $100,000 starting capital, and all their trades, portfolios, and watchlists are saved to a cloud database.
                 </p>
 
                 <hr class="reveal active version-separator">
 
-                <h3 class="reveal active">Key Features</h3>
+                <h3 class="reveal active">Features</h3>
                 <ul class="reveal active">
-                    <li><strong>Market Terminal:</strong> Experience real-time market data directly within your dashboard.</li>
-                    <li><strong>Research Integration:</strong> Full stock fundamentals, recent 7-day high/low price points, and curated news articles using <code>yfinance</code>.</li>
-                    <li><strong>Session Security:</strong> Mandatory single-session policies ensuring your data is protected from multiple concurrent logins.</li>
+                    <li><strong>Secure Login:</strong> Private accounts so only you can access your portfolio.</li>
+                    <li><strong>Cloud Saves:</strong> Your balance, trades, and watchlists are backed up to a Supabase database. You can close the app and pick up right where you left off.</li>
+                    <li><strong>Live Data:</strong> Real-time stock prices fetched using Yahoo Finance (<code>yfinance</code>).</li>
+                    <li><strong>Portfolio Tracking:</strong> Automatically calculates your total shares and average buy prices.</li>
+                    <li><strong>Watchlist:</strong> Add and track live prices for your favorite stocks.</li>
+                    <li><strong>Trade Journal:</strong> Keeps a full history of every buy and sell order.</li>
                 </ul>
 
                 <hr class="reveal active version-separator">
 
+                <h3 class="reveal active">Tech Stack</h3>
+                <ul class="reveal active">
+                    <li><strong>UI & Backend:</strong> <a href="https://streamlit.io/" target="_blank" class="accent-link">Streamlit</a></li>
+                    <li><strong>Database:</strong> <a href="https://supabase.com/" target="_blank" class="accent-link">Supabase</a> (PostgreSQL)</li>
+                    <li><strong>Market Data:</strong> <code>yfinance</code></li>
+                    <li><strong>Data Handling:</strong> <code>pandas</code></li>
+                </ul>
+
+                <hr class="reveal active version-separator">
+
+                <h3 class="reveal active">How to Get Access</h3>
+                <p class="reveal active">
+                    The app is currently in private beta to manage database usage. If you want to try it out, just reach out!
+                </p>
+                <ol class="reveal active">
+                    <li>Email me at <a href="mailto:bubryanwb@gmail.com" class="accent-link">bubryanwb@gmail.com</a> or message me on <a href="https://www.linkedin.com/in/bryanbuwb/" target="_blank" class="accent-link">LinkedIn</a>.</li>
+                    <li>Let me know your preferred username.</li>
+                    <li>I'll set up your account and send you a temporary password.</li>
+                </ol>
+                <p class="reveal active font-italic text-small mt-3">
+                    Note: Your portfolio and history are tied to your account. Password changes are disabled for now.
+                </p>
+
+                <hr class="reveal active version-separator">
                 <h3 class="reveal active">Future Enhancements</h3>
                 <p class="reveal active">
-                    We are continuously refining the Paper Trading Lab with plans to add more complex order types, backtesting modules with historical data, and AI-driven insights to evaluate the efficacy of user-defined trading models.
+                    I am still continuously refining the Paper Trading Lab with plans to add more features like recent news retrieval and AI-driven insights to evaluate the efficacy of user-defined trading models.
                 </p>
 
             </div>

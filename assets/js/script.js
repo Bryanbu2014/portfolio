@@ -8,6 +8,8 @@
     const cursor   = document.getElementById('typewriter-cursor');
     const twText   = "I'm an Artificial Intelligence student, eager to explore the vast possibilities of AI and passionate about learning how to build robust software solutions powered by AI.";
 
+    if (!imgWrap || !h1 || !heroPara || !heroBtn || !twEl || !cursor) return;
+
     function skipToEnd() {
         imgWrap.style.opacity   = '1';
         imgWrap.style.transform = 'scale(1)';
@@ -55,17 +57,19 @@
 const navToggle = document.getElementById('navToggle');
 const navbarPill = document.getElementById('navbarPill');
 
-navToggle.addEventListener('click', () => {
-    navbarPill.classList.toggle('mobile-active');
-    const icon = navToggle.querySelector('i');
-    if(navbarPill.classList.contains('mobile-active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
+if (navToggle && navbarPill) {
+    navToggle.addEventListener('click', () => {
+        navbarPill.classList.toggle('mobile-active');
+        const icon = navToggle.querySelector('i');
+        if(navbarPill.classList.contains('mobile-active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+}
 
 // Close sidebar when clicking a link (mobile)
 const navLinks = document.querySelectorAll('.nav-link');
@@ -106,15 +110,17 @@ const copyEmailBtn = document.getElementById('copyEmailBtn');
 const notification = document.getElementById('copyNotification');
 const email = 'bubryanwb@gmail.com';
 
-copyEmailBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText(email).then(() => {
-        notification.classList.add('show');
-        setTimeout(() => {
-            notification.classList.remove('show');
-        }, 3000);
+if (copyEmailBtn && notification) {
+    copyEmailBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigator.clipboard.writeText(email).then(() => {
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        });
     });
-});
+}
 
 // Form Submission
 const contactForm = document.getElementById('contactForm');
@@ -149,8 +155,13 @@ if(loadMoreBtn) {
         const projectsToLoad = 3;
 
         for(let i = 0; i < hiddenProjects.length; i++) {
-            if(hiddenProjects[i].style.display === 'none') {
+            // Check computed style to handle initial CSS hiding
+            if(window.getComputedStyle(hiddenProjects[i]).display === 'none') {
                 hiddenProjects[i].style.display = 'block';
+                // Clear any inline overrides that might have been set by the page load observer
+                hiddenProjects[i].style.animation = '';
+                hiddenProjects[i].style.opacity = '';
+                hiddenProjects[i].style.transform = '';
                 hiddenProjects[i].style.animationDelay = `${loadedCount * 0.15}s`;
                 
                 hiddenProjects[i].classList.add('reveal');
@@ -161,7 +172,7 @@ if(loadMoreBtn) {
             if(loadedCount === projectsToLoad) break;
         }
 
-        const remainingHidden = Array.from(hiddenProjects).filter(p => p.style.display === 'none').length;
+        const remainingHidden = Array.from(hiddenProjects).filter(p => window.getComputedStyle(p).display === 'none').length;
         if(remainingHidden === 0) {
             loadMoreBtn.style.display = 'none';
             showLessBtn.style.display = 'block';
@@ -177,6 +188,12 @@ if(showLessBtn) {
         hiddenProjects.forEach(p => {
             p.style.display = 'none';
             p.classList.remove('active');
+            p.classList.remove('reveal');
+            // Clear all inline styles that might have been added by the "animationsPlayed" logic
+            p.style.animation = '';
+            p.style.opacity = '';
+            p.style.transform = '';
+            p.style.animationDelay = '';
         });
         
         showLessBtn.style.display = 'none';
@@ -189,48 +206,38 @@ if(showLessBtn) {
 }
 
 // Intersection Observer for Reveal Animations
-if (sessionStorage.getItem('animationsPlayed') === 'true') {
-    document.querySelectorAll('.reveal').forEach((el) => {
-        el.style.animation = 'none';
-        el.style.opacity = '1';
-        el.classList.add('active');
-    });
-} else {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
+const revealObserverOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+};
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach((el) => {
-        observer.observe(el);
-    });
-    
-    sessionStorage.setItem('animationsPlayed', 'true');
-}
-
-// Intersection Observer for Reveal Animations (shared across all sub-pages)
-const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-const observer = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            observer.unobserve(entry.target);
+            revealObserver.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, revealObserverOptions);
+
+// Check animation state
+const animationsPlayed = sessionStorage.getItem('animationsPlayed') === 'true';
+const isLandingPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('portfolio/');
 
 document.querySelectorAll('.reveal').forEach((el) => {
-    observer.observe(el);
+    if (animationsPlayed && isLandingPage) {
+        el.style.animation = 'none';
+        el.style.opacity = '1';
+        el.classList.add('active');
+    } else {
+        revealObserver.observe(el);
+    }
 });
+
+// Mark as played only on landing page to allow normal animations on project pages
+if (isLandingPage) {
+    sessionStorage.setItem('animationsPlayed', 'true');
+}
 
 
 
@@ -254,5 +261,57 @@ document.addEventListener('click', (e) => {
     if (backBtn && (backBtn.textContent.includes('Go Back') || backBtn.querySelector('.fa-arrow-left') || backBtn.textContent.includes('RETURN'))) {
         e.preventDefault();
         window.history.back();
+    }
+
+    // 3. Version History Accordion Logic
+    const versionHeader = e.target.closest('.version-header');
+    if (versionHeader) {
+        const block = versionHeader.closest('.version-block');
+        block.classList.toggle('collapsed');
+    }
+
+    // 4. Image Modal Logic
+    const clickableImage = e.target.closest('.clickable-image');
+    if (clickableImage) {
+        // Create modal if it doesn't exist
+        let modal = document.getElementById('globalImageModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'globalImageModal';
+            modal.className = 'image-modal';
+            modal.innerHTML = `
+                <span class="image-modal-close">&times;</span>
+                <img class="image-modal-content" id="globalImageModalImg">
+            `;
+            document.body.appendChild(modal);
+        }
+        
+        const modalImg = document.getElementById('globalImageModalImg');
+        modalImg.src = clickableImage.src;
+        modalImg.alt = clickableImage.alt;
+        
+        // Show modal with slight delay to allow display:flex to apply before opacity transition
+        modal.style.display = 'flex';
+        // Force reflow
+        void modal.offsetWidth;
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    const modalClose = e.target.closest('.image-modal-close');
+    const modalBackground = e.target.id === 'globalImageModal';
+    if (modalClose || modalBackground) {
+        const modal = document.getElementById('globalImageModal');
+        if (modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // Restore scrolling
+            
+            // Wait for transition to finish before hiding
+            setTimeout(() => {
+                if (!modal.classList.contains('show')) {
+                    modal.style.display = 'none';
+                }
+            }, 300);
+        }
     }
 });
