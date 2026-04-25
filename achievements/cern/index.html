@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CERN | Bryan Bu Wen Bin</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../../favicon_io/site.webmanifest">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS (Design 3) -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+
+    <!-- Top Left Home Button -->
+    <a href="../../" class="home-btn-corner" aria-label="Home">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <!-- Floating Pill Navigation -->
+    <nav class="navbar-pill">
+        <a href="#" onclick="window.history.back(); return false;" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <article class="article-container reveal active">
+            
+            <header class="article-header">
+                <h1 class="article-title">CERN GridWars Hackathon</h1>
+                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">1st Runner Up</p>
+            </header>
+
+            <div class="article-content">
+                <h3 class="reveal active" style="text-align: center;">Certificate of Participation</h3>
+                <div class="cv-container reveal active" style="margin: 2rem auto; max-width: 800px;">
+                    <iframe src="https://drive.google.com/file/d/15uyLQseBoFaOcf1KNG_cZgIT0kxkkzrt/preview" allow="autoplay"></iframe>
+                </div>
+
+                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+
+                <h3 class="reveal active" style="text-align: center;">Hackathon Award Certificate</h3>
+                <div class="cert-container reveal active" style="margin: 2rem auto; max-width: 900px;">
+                    <iframe src="https://drive.google.com/file/d/1XIwS49t-YEdpsHi0AH7S6N8dzvmJPkqJ/preview" allow="autoplay"></iframe>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
