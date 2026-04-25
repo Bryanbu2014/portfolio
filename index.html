@@ -1,260 +1,385 @@
 <!DOCTYPE html>
-<!--
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    <title>Bryan Bu Wen Bin</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-  <body class="is-preload">
-    <!-- Header -->
-    <div id="header">
-      <div class="top">
-        <!-- Logo -->
-        <div id="logo">
-          <span class="image avatar48"
-            ><img src="images/avatar.jpg" alt=""
-          /></span>
-          <h1 id="title">Bryan Bu Wen Bin</h1>
-          <p>Artificial Intelligence Student</p>
-        </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan Bu Wen Bin | Home</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_io/site.webmanifest">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS (Design 3) -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
 
-        <!-- Nav -->
-        <nav id="nav">
-          <ul>
-            <li>
-              <a href="#top" id="top-link"
-                ><span class="icon solid fa-home">Intro</span></a
-              >
-            </li>
-            <li>
-              <a href="#portfolio" id="portfolio-link"
-                ><span class="icon solid fa-th">Portfolio</span></a
-              >
-            </li>
-            <li>
-              <a href="#about" id="about-link"
-                ><span class="icon solid fa-user">About Me</span></a
-              >
-            </li>
-            <li>
-              <a href="#contact" id="contact-link"
-                ><span class="icon solid fa-envelope">Contact</span></a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
+    <!-- Top Left Home Button -->
+    <a href="#" class="home-btn-corner" aria-label="Home">
+        <i class="fas fa-home"></i>
+    </a>
 
-      <div class="bottom">
-        <!-- Social Icons -->
-        <ul class="icons">
-          <li>
-            <a href="#" class="icon brands fa-twitter"
-              ><span class="label">Twitter</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-facebook-f"
-              ><span class="label">Facebook</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-github"
-              ><span class="label">Github</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-dribbble"
-              ><span class="label">Dribbble</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon solid fa-envelope"
-              ><span class="label">Email</span></a
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
+    <!-- Mobile Nav Toggle -->
+    <button class="mobile-nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+    </button>
 
-    <!-- Main -->
-    <div id="main">
-      <!-- Intro -->
-      <section id="top" class="one dark cover">
-        <div class="container">
-          <header>
-            <h2 class="alt">
-              Welcome, Visitor!👋 My name is <strong>Bryan Bu</strong>! <br />
-              Here, you may dive into my world of projects. Enjoy your
-              exploration!🔥
-            </h2>
-            <p>
-              Ligula scelerisque justo sem accumsan diam quis<br />
-              vitae natoque dictum sollicitudin elementum.
-            </p>
-          </header>
+    <!-- Floating Pill Navigation -->
+    <nav class="navbar-pill" id="navbarPill">
+        <a href="#hero" class="nav-link active">Intro</a>
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#cv" class="nav-link">Curriculum Vitae</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
 
-          <footer>
-            <a href="#portfolio" class="button scrolly">Magna Aliquam</a>
-          </footer>
-        </div>
-      </section>
-
-      <!-- Portfolio -->
-      <section id="portfolio" class="two">
-        <div class="container">
-          <header>
-            <h2>Portfolio</h2>
-          </header>
-
-          <p>
-            Vitae natoque dictum etiam semper magnis enim feugiat convallis
-            convallis egestas rhoncus ridiculus in quis risus amet curabitur
-            tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam
-            vivamus eget. Nunc nibh morbi quis fusce hendrerit lacus ridiculus.
-          </p>
-
-          <div class="row">
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="images/pic02.jpg" alt=""
-                /></a>
-                <header>
-                  <h3>Ipsum Feugiat</h3>
-                </header>
-              </article>
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="images/pic03.jpg" alt=""
-                /></a>
-                <header>
-                  <h3>Rhoncus Semper</h3>
-                </header>
-              </article>
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-img-container">
+                <img src="images/profile-pic.JPG" alt="Profile Picture" class="hero-img">
             </div>
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="images/pic04.jpg" alt=""
-                /></a>
-                <header>
-                  <h3>Magna Nullam</h3>
-                </header>
-              </article>
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="images/pic05.jpg" alt=""
-                /></a>
-                <header>
-                  <h3>Natoque Vitae</h3>
-                </header>
-              </article>
+            <h1 class="reveal" style="font-size: 4.5rem; margin-bottom: 0.5rem;">Hi, I'm <span class="gradient-text">Bryan.</span></h1>
+            <p class="reveal" style="font-size: 1.5rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2rem;">I'm an Artificial Intelligence student, eager to explore the vast possibilities of AI and passionate about learning how to build robust software solutions powered by AI.</p>
+            <div class="reveal" style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="#projects" class="btn btn-primary">Explore My Work</a>
             </div>
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="images/pic06.jpg" alt=""
-                /></a>
-                <header>
-                  <h3>Dolor Penatibus</h3>
-                </header>
-              </article>
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="images/pic07.jpg" alt=""
-                /></a>
-                <header>
-                  <h3>Orci Convallis</h3>
-                </header>
-              </article>
+        </section>
+
+        <!-- About & Bento Box Grid -->
+        <section id="about">
+            <h2 class="section-title reveal">About Me</h2>
+            
+            <div class="bento-grid">
+                <!-- Large About Block -->
+                <div class="bento-item about-bento reveal">
+                    <div class="about-text">
+                        <p>I'm a Malaysian student at the Deggendorf Institute of Technology where I'm working towards a Bachelor's degree in <a href="https://www.th-deg.de/ki-b" target="_blank">Artificial Intelligence</a>. My passion lies in the field of Natural Language Processing, inspired by the rise of large language model (LLM). Throughout my academic journey, I find myself fascinated by the intricate ways in which LLMs can interpret, generate, and transform human language. Amazing, isn't it? This fascination has led me to seek out various projects related to the field.</p>
+                        
+                        <p>Through my academic path and internship role at Bosch, I have built a robust toolkit in Python, Computer Vision, and Data Analysis with cloud-based solutions. During my internship, I specialized in cloud-based data pipelines to process large and real-time datasets. My work focused on generating insights for defect detection and designing interactive dashboards to visualize these results for industrial decision-making.</p>
+                        
+                        <p>Building on top of this foundation, my Bachelor's thesis focuses on the application of Computer Vision for defect inspection. The thesis aims to bridge the gap between research and production-ready industrial applications.</p>
+                        
+                        <p>Just a brief section about my hobby to get to know more about me. Besides studies, I really enjoy music, especially playing the piano. For me, it's a fun way to relax and it also helps me to be more creative and focused, which I believe is beneficial for everything I do, including my studies and projects. If you wish to know more about my piano covers, by clicking the door emoji <a href="./projects/piano-cover/index.html" class="standalone-link">🚪</a>, you will enter my world of music.</p>
+                        
+                        <p>Thank you for taking the time to learn about me until this far. I'm always open to discussing innovative ideas, collaborative opportunities, or simply connecting with like-minded individuals!</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/intro-pic.JPG" alt="Intro Pic">
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- About Me -->
-      <section id="about" class="three">
-        <div class="container">
-          <header>
-            <h2>About Me</h2>
-          </header>
+        <!-- Projects Grid -->
+        <section id="projects">
+            <h2 class="section-title reveal">Projects</h2>
 
-          <a href="#" class="image featured"
-            ><img src="images/pic08.jpg" alt=""
-          /></a>
+            <div class="bento-grid">
+                
+                <div class="bento-item reveal">
+                    <a href="./projects/gan/" class="project-card">
+                        <div class="img-wrapper">
+                            <img src="images/generative-adversarial-network/gan-face.jpg" alt="gan-resized">
+                        </div>
+                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3>Generative Adversarial Network</h3>
+                            <p></p>
+                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                        </div>
+                    </a>
+                </div>
 
-          <p>
-            Tincidunt eu elit diam magnis pretium accumsan etiam id urna.
-            Ridiculus ultricies curae quis et rhoncus velit. Lobortis elementum
-            aliquet nec vitae laoreet eget cubilia quam non etiam odio tincidunt
-            montes. Elementum sem parturient nulla quam placerat viverra mauris
-            non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
-            donec curae mus vel quisque sociis nec ornare iaculis.
-          </p>
-        </div>
-      </section>
+                <div class="bento-item reveal">
+                    <a href="./projects/grid-wars/" class="project-card">
+                        <div class="img-wrapper">
+                            <img src="images/grip-wars.webp" alt="z3-solver">
+                        </div>
+                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3>Grid Wars</h3>
+                            <p></p>
+                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                        </div>
+                    </a>
+                </div>
 
-      <!-- Contact -->
-      <section id="contact" class="four">
-        <div class="container">
-          <header>
-            <h2>Contact</h2>
-          </header>
+                <div class="bento-item reveal">
+                    <a href="./projects/cv-jetbot/" class="project-card">
+                        <div class="img-wrapper">
+                            <img src="images/jetson-self-driving-robot-car/jetbot.png" alt="Jetbot">
+                        </div>
+                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3>Jetson Self Driving Robot Car</h3>
+                            <p></p>
+                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                        </div>
+                    </a>
+                </div>
 
-          <p>
-            Elementum sem parturient nulla quam placerat viverra mauris non cum
-            elit tempus ullamcorper dolor. Libero rutrum ut lacinia donec curae
-            mus. Eleifend id porttitor ac ultricies lobortis sem nunc orci
-            ridiculus faucibus a consectetur. Porttitor curae mauris urna mi
-            dolor.
-          </p>
+                <!-- Hidden Projects to be loaded -->
+                <div class="bento-item hidden-project" style="display: none;">
+                    <a href="./projects/z3-solver/" class="project-card">
+                        <div class="img-wrapper">
+                            <img src="images/z3-solver-square.jpg" alt="z3 solver">
+                        </div>
+                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3>Z3 Solver</h3>
+                            <p></p>
+                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                        </div>
+                    </a>
+                </div>
 
-          <form method="post" action="#">
-            <div class="row">
-              <div class="col-6 col-12-mobile">
-                <input type="text" name="name" placeholder="Name" />
-              </div>
-              <div class="col-6 col-12-mobile">
-                <input type="text" name="email" placeholder="Email" />
-              </div>
-              <div class="col-12">
-                <textarea name="message" placeholder="Message"></textarea>
-              </div>
-              <div class="col-12">
-                <input type="submit" value="Send Message" />
-              </div>
+                <div class="bento-item hidden-project" style="display: none;">
+                    <a href="./projects/cinema-chatbot/" class="project-card">
+                        <div class="img-wrapper">
+                            <img src="images/chatbot.jpg" alt="cinema chatbot">
+                        </div>
+                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3>Cinema Chatbot</h3>
+                            <p></p>
+                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+
+
             </div>
-          </form>
-        </div>
-      </section>
-    </div>
+
+            <div class="reveal" style="text-align: center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem;">
+                <button id="loadMoreProjects" class="btn btn-outline">Load More Projects</button>
+                <button id="showLessProjects" class="btn btn-outline" style="display: none;">Show Less Projects</button>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements">
+            <h2 class="section-title reveal">Achievements</h2>
+
+            <div class="achievements-grid">
+                <a href="./achievements/cern/" class="achievement-card reveal">
+                    <img src="images/cern-logo.png" alt="cern-logo">
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">CERN GridWars Hackathon - 1st Runner Up</h3>
+                </a>
+
+                <a href="./achievements/congatec/" class="achievement-card reveal">
+                    <img src="images/congatec-logo.png" alt="congatec-logo">
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">Working Student Certificate</h3>
+                </a>
+
+                <a href="./achievements/bosch/" class="achievement-card reveal">
+                    <img src="images/bosch-logo.jpg" alt="bosch-logo" style="border-radius: 50%;">
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">Mandatory Internship Certificate</h3>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- CV Section -->
+        <section id="cv">
+            <h2 class="section-title reveal">Curriculum Vitae</h2>
+            
+            <div class="cv-container reveal">
+                <iframe src="https://drive.google.com/file/d/1NRXn7cp3lrR-VylapfTMnoocv7n1ZNyb/preview" allow="autoplay"></iframe>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="contact-wrapper reveal">
+                <h2 class="contact-title" style="margin-bottom: 1.5rem;">Contact</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 3rem;">
+                    Feel free to reach out for collaborations, questions, or even just to say hello! Drop me a message below and I'll get back to you soon.
+                </p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/Bryanbu2014" target="_blank" title="Github"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/bryanbuwb/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+                <button id="copyEmailBtn" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Send me an email!
+                </button>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
-    <div id="footer">
-      <!-- Copyright -->
-      <ul class="copyright">
-        <li>&copy; Untitled. All rights reserved.</li>
-        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-      </ul>
+    <footer>
+        <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="copyNotification" class="toast-notification">
+        <i class="fas fa-check-circle" style="color: #10b981;"></i> Email copied to clipboard! ✨
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navbarPill = document.getElementById('navbarPill');
+        
+        navToggle.addEventListener('click', () => {
+            navbarPill.classList.toggle('mobile-active');
+            const icon = navToggle.querySelector('i');
+            if(navbarPill.classList.contains('mobile-active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close sidebar when clicking a link (mobile)
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth <= 768) {
+                    navbarPill.classList.remove('mobile-active');
+                    const icon = navToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Active Navigation Link on Scroll
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 250) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Copy email logic
+        const copyEmailBtn = document.getElementById('copyEmailBtn');
+        const notification = document.getElementById('copyNotification');
+        const email = 'bubryanwb@gmail.com';
+
+        copyEmailBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText(email).then(() => {
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            });
+        });
+
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+
+        // Load More / Show Less Projects Logic
+        const loadMoreBtn = document.getElementById('loadMoreProjects');
+        const showLessBtn = document.getElementById('showLessProjects');
+        const hiddenProjects = document.querySelectorAll('.hidden-project');
+        
+        // Check if projects were previously expanded
+        if (sessionStorage.getItem('projectsExpanded') === 'true') {
+            hiddenProjects.forEach(p => {
+                p.style.display = 'block';
+                p.style.animationDelay = '0s';
+                p.classList.add('reveal', 'active');
+            });
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+            if (showLessBtn) showLessBtn.style.display = 'block';
+        }
+
+        if(loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let loadedCount = 0;
+                const projectsToLoad = 3;
+
+                for(let i = 0; i < hiddenProjects.length; i++) {
+                    if(hiddenProjects[i].style.display === 'none') {
+                        hiddenProjects[i].style.display = 'block';
+                        hiddenProjects[i].style.animationDelay = `${loadedCount * 0.15}s`;
+                        
+                        hiddenProjects[i].classList.add('reveal');
+                        void hiddenProjects[i].offsetWidth; // force reflow
+                        hiddenProjects[i].classList.add('active');
+                        loadedCount++;
+                    }
+                    if(loadedCount === projectsToLoad) break;
+                }
+
+                const remainingHidden = Array.from(hiddenProjects).filter(p => p.style.display === 'none').length;
+                if(remainingHidden === 0) {
+                    loadMoreBtn.style.display = 'none';
+                    showLessBtn.style.display = 'block';
+                }
+                
+                sessionStorage.setItem('projectsExpanded', 'true');
+            });
+        }
+
+        if(showLessBtn) {
+            showLessBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                hiddenProjects.forEach(p => {
+                    p.style.display = 'none';
+                    p.classList.remove('active');
+                });
+                
+                showLessBtn.style.display = 'none';
+                loadMoreBtn.style.display = 'block';
+                sessionStorage.setItem('projectsExpanded', 'false');
+                
+                // Scroll back up to the projects section nicely
+                document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Optional: animate only once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
 </html>

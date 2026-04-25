@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Wars | Bryan Bu Wen Bin</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../../favicon_io/site.webmanifest">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS (Design 3) -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+
+    <!-- Top Left Home Button -->
+    <a href="../../" class="home-btn-corner" aria-label="Home">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <!-- Floating Pill Navigation -->
+    <nav class="navbar-pill">
+        <a href="#" onclick="window.history.back(); return false;" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <article class="article-container reveal active">
+            
+            <header class="article-header">
+                <h1 class="article-title">Grid Wars</h1>
+                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">2024 CERN Spring Campus Hackathon.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="https://github.com/Bryanbu2014/anonymous-gridwars" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> View Source</a>
+                </div>
+            </header>
+
+            <img src="../../images/grip-wars.webp" alt="Grid Wars" class="article-image reveal active" style="max-width: 400px; display: block; margin: 0 auto 3rem auto; object-fit: contain;">
+
+            <div class="article-content">
+                <h3 class="reveal active">Introduction</h3>
+                <p class="reveal active">
+                    I, along with my teammates, formed a group of four and participated
+                    in the
+                    <a href="https://indico.cern.ch/event/1314876/" style="color: var(--accent-color);"><strong>2024 CERN Spring Campus</strong></a>
+                    hackathon. The event was held at the
+                    <a href="https://www.th-deg.de/en" style="color: var(--accent-color);"><strong>Deggendorf Institute of Technology</strong></a>
+                    from March 11th to 14th.
+                </p>
+                <p class="reveal active">
+                    The hackathon hosted by the event featured a game named "Grid Wars".
+                    The gameplay is briefly showcased below. We are team
+                    <strong>Anonymous</strong>, the one in red. One of the reasons I am
+                    showcasing this match is because I appreciate how the blue team
+                    opens up the grid beautifully as well!
+                </p>
+
+                <img src="../../images/grid-wars/showcase-1.gif" alt="Showcase" class="article-image reveal active" style="width: 100%; border-radius: 24px; margin: 2rem 0;">
+
+                <p class="reveal active">
+                    The game concept is particularly interesting to me. Essentially, the
+                    game's core objective is to either conquer the 50x50 grid or have
+                    more troops by the time the round reaches 2000 turns to win the
+                    game.
+                </p>
+
+                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+
+                <h3 class="reveal active">Instruction</h3>
+                <ul class="reveal active">
+                    <li>1vs1 matches between 2 bots in a 50x50 cells board.</li>
+                    <li>Bots start at a random cell with 100 troop units.</li>
+                    <li>Bots take alternating turns to move units.</li>
+                    <li>Bots can only move up, down, left, right. I.e., no diagonals.</li>
+                    <li>You can move into your own cells, the population will be merged.</li>
+                    <li>If two bots meet in the same cell, they fight!</li>
+                    <li>Surviving units = attacking - defending units.</li>
+                    <li>Population increased by 10% every round (i.e., 2 turns), and it is rounded to nearest integer.</li>
+                    <li>Maximum population per cell is 100.</li>
+                </ul>
+
+                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+
+                <h3 class="reveal active">Result</h3>
+                <p class="reveal active">
+                    Our team, "Anonymous", won a second place in the hackathon! The
+                    intensity and excitement of developing this project alongside my
+                    team marked this an unforgettable adventure to me.
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
