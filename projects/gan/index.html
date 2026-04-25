@@ -45,21 +45,7 @@
 
             <div class="article-content">
 
-          <style>
-            .result {
-              display: flex;
-              flex-wrap: nowrap; /* This is the magic rule that stops them from getting pushed down */
-              gap: 10px; /* This adds a neat 10px space between each image */
-              margin-top: 20px;
-              margin-bottom: 20px;
-            }
 
-            .result img {
-              flex: 1; /* This tells all 5 images to share the space perfectly equally */
-              width: 100%; /* Ensures the image fills its designated space */
-              height: auto; /* Keeps the pictures from getting stretched out of shape */
-            }
-          </style>
 
           <h3>Introduction</h3>
           <p>
@@ -545,21 +531,6 @@
         <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 </html>

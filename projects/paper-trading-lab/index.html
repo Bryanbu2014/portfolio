@@ -19,13 +19,13 @@
 <body>
 
     <!-- Top Left Home Button -->
-    <a href="../../" class="home-btn-corner" aria-label="Home" onclick="sessionStorage.removeItem('projectsExpanded'); sessionStorage.removeItem('animationsPlayed');">
+    <a href="../../" class="home-btn-corner" aria-label="Home">
         <i class="fas fa-home"></i>
     </a>
 
     <!-- Floating Pill Navigation -->
     <nav class="navbar-pill">
-        <a href="#" onclick="window.history.back(); return false;" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
+        <a href="#" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
     </nav>
 
     <!-- Main Content -->
@@ -34,8 +34,8 @@
             
             <header class="article-header">
                 <h1 class="article-title">Paper Trading Lab</h1>
-                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">A simulated market environment for backtesting and evaluating trading strategies.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
+                <p class="changelog-subtitle">A simulated market environment for backtesting and evaluating trading strategies.</p>
+                <div class="hero-btns">
                     <a href="https://github.com/Bryanbu2014/paper-trading-lab" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> View Source</a>
                 </div>
             </header>
@@ -48,7 +48,7 @@
                     The Paper Trading Lab is a risk-free, simulated market environment designed for testing and developing trading strategies. By leveraging real-time data, comprehensive fundamental analysis tools, and interactive dashboards, it provides an immersive platform for understanding market dynamics without the financial risk.
                 </p>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Key Features</h3>
                 <ul class="reveal active">
@@ -57,7 +57,7 @@
                     <li><strong>Session Security:</strong> Mandatory single-session policies ensuring your data is protected from multiple concurrent logins.</li>
                 </ul>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Future Enhancements</h3>
                 <p class="reveal active">
@@ -73,21 +73,6 @@
         <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 </html>
