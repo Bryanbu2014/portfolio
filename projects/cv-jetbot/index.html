@@ -15,26 +15,6 @@
     
     <!-- Custom CSS (Design 3) -->
     <link rel="stylesheet" href="../../assets/css/main.css">
-
-    <style>
-        .video-container-hori {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 24px;
-            margin: 2rem 0;
-            border: 1px solid var(--border-color);
-        }
-        .responsive-iframe-hori {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
 </head>
 <body>
 
@@ -45,7 +25,7 @@
 
     <!-- Floating Pill Navigation -->
     <nav class="navbar-pill">
-        <a href="#" onclick="window.history.back(); return false;" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
+        <a href="#" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
     </nav>
 
     <!-- Main Content -->
@@ -54,28 +34,28 @@
             
             <header class="article-header">
                 <h1 class="article-title">Jetson Self Driving Robot Car</h1>
-                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">Autonomous driving and obstacle avoidance using Computer Vision.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
+                <p class="changelog-subtitle">Autonomous driving and obstacle avoidance using Computer Vision.</p>
+                <div class="hero-btns">
                     <a href="https://github.com/Bryanbu2014/jetson-self-driving-toy-car" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> View Source</a>
                     <a href="#endresult" class="btn btn-primary"><i class="fas fa-video"></i> View Result</a>
                 </div>
             </header>
 
-            <img src="../../images/jetson-self-driving-robot-car/jetbot.png" alt="Jetbot" class="article-image reveal active" style="max-width: 400px; display: block; margin: 0 auto 3rem auto; object-fit: contain;">
+            <img src="../../images/jetson-self-driving-robot-car/jetbot.png" alt="Jetbot" class="article-image reveal active article-image-centered">
 
             <div class="article-content">
                 <h3 class="reveal active">Introduction</h3>
                 <p class="reveal active">
                     This is the project in module "Computer Vision" in 4th semester of
                     my course,
-                    <a href="https://www.th-deg.de/ki-b" target="_blank" style="color: var(--accent-color);">Artificial Intelligence</a>. The goal of this project is to programme a autonomous driving
+                    <a href="https://www.th-deg.de/ki-b" target="_blank" class="accent-link">Artificial Intelligence</a>. The goal of this project is to program an autonomous driving
                     robot with computer vision techniques using
-                    <a href="https://www.waveshare.com/product/ai/jetbot-ai-kit.htm" target="_blank" style="color: var(--accent-color);">Jetson Nano Developent Kit from Waveshare</a>. The desired functions of this autonomous driving robot are road
+                    <a href="https://www.waveshare.com/product/ai/jetbot-ai-kit.htm" target="_blank" class="accent-link">Jetson Nano Developent Kit from Waveshare</a>. The desired functions of this autonomous driving robot are road
                     following and obstacle avoidance, which means the robot can drive by
                     itself in a designed track and stop before it hits an obstacle.
                 </p>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Motivation: Autonomous Driving</h3>
                 <ul class="reveal active">
@@ -84,7 +64,7 @@
                     <li>How different each AI models process and predicts images</li>
                 </ul>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Features</h3>
                 <ul class="reveal active">
@@ -92,17 +72,17 @@
                     <li>Stage 2 (collision avoidance) → To avoid obstacles as the robot drives along the designed track i.e. The robot stops if there is an obstacle ahead</li>
                 </ul>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Methodology</h3>
-                <p class="reveal active" style="margin-bottom: 10px">Workflow is concluded generally as follow:</p>
+                <p class="reveal active mb-2">Workflow is concluded generally as follow:</p>
                 <ul class="reveal active">
                     <li>Data collection</li>
                     <li>Train a model with the data collected</li>
                     <li>Loading the model on the Jetbot</li>
                 </ul>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 id="endresult" class="reveal active">Result / Demonstration</h3>
                 
@@ -117,7 +97,7 @@
                     a crash.
                 </p>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Lesson Learned – In a Nutshell</h3>
                 <ul class="reveal active">
@@ -134,21 +114,6 @@
         <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 </html>

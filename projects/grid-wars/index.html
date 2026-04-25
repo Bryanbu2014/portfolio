@@ -25,7 +25,7 @@
 
     <!-- Floating Pill Navigation -->
     <nav class="navbar-pill">
-        <a href="#" onclick="window.history.back(); return false;" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
+        <a href="#" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
     </nav>
 
     <!-- Main Content -->
@@ -34,22 +34,22 @@
             
             <header class="article-header">
                 <h1 class="article-title">Grid Wars</h1>
-                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">2024 CERN Spring Campus Hackathon.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
+                <p class="changelog-subtitle">2024 CERN Spring Campus Hackathon.</p>
+                <div class="hero-btns">
                     <a href="https://github.com/Bryanbu2014/anonymous-gridwars" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> View Source</a>
                 </div>
             </header>
 
-            <img src="../../images/grip-wars.webp" alt="Grid Wars" class="article-image reveal active" style="max-width: 400px; display: block; margin: 0 auto 3rem auto; object-fit: contain;">
+            <img src="../../images/grip-wars.webp" alt="Grid Wars" class="article-image reveal active article-image-centered">
 
             <div class="article-content">
                 <h3 class="reveal active">Introduction</h3>
                 <p class="reveal active">
                     I, along with my teammates, formed a group of four and participated
                     in the
-                    <a href="https://indico.cern.ch/event/1314876/" style="color: var(--accent-color);"><strong>2024 CERN Spring Campus</strong></a>
+                    <a href="https://indico.cern.ch/event/1314876/" class="accent-link"><strong>2024 CERN Spring Campus</strong></a>
                     hackathon. The event was held at the
-                    <a href="https://www.th-deg.de/en" style="color: var(--accent-color);"><strong>Deggendorf Institute of Technology</strong></a>
+                    <a href="https://www.th-deg.de/en" class="accent-link"><strong>Deggendorf Institute of Technology</strong></a>
                     from March 11th to 14th.
                 </p>
                 <p class="reveal active">
@@ -60,7 +60,7 @@
                     opens up the grid beautifully as well!
                 </p>
 
-                <img src="../../images/grid-wars/showcase-1.gif" alt="Showcase" class="article-image reveal active" style="width: 100%; border-radius: 24px; margin: 2rem 0;">
+                <img src="../../images/grid-wars/showcase-1.gif" alt="Showcase" class="article-image reveal active clickable-image">
 
                 <p class="reveal active">
                     The game concept is particularly interesting to me. Essentially, the
@@ -69,7 +69,7 @@
                     game.
                 </p>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Instruction</h3>
                 <ul class="reveal active">
@@ -84,7 +84,7 @@
                     <li>Maximum population per cell is 100.</li>
                 </ul>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Result</h3>
                 <p class="reveal active">
@@ -101,21 +101,6 @@
         <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 </html>

@@ -25,7 +25,7 @@
 
     <!-- Floating Pill Navigation -->
     <nav class="navbar-pill">
-        <a href="#" onclick="window.history.back(); return false;" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
+        <a href="#" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
     </nav>
 
     <!-- Main Content -->
@@ -34,13 +34,13 @@
             
             <header class="article-header">
                 <h1 class="article-title">Z3-Solver</h1>
-                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">Constructing Tables According To Given Specifications</p>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
+                <p class="changelog-subtitle">Constructing Tables According To Given Specifications</p>
+                <div class="hero-btns">
                     <a href="https://github.com/Bryanbu2014/ai-programming" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> View Source</a>
                 </div>
             </header>
 
-            <img src="../../images/z3-solver-square.jpg" alt="Z3-Solver" class="article-image reveal active" style="max-width: 400px; display: block; margin: 0 auto 3rem auto; object-fit: contain;">
+            <img src="../../images/z3-solver-square.jpg" alt="Z3-Solver" class="article-image reveal active article-image-centered">
 
             <div class="article-content">
                 <h3 class="reveal active">Description</h3>
@@ -58,7 +58,7 @@
                     the values in the table is minimal.
                 </p>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Example</h3>
                 <p class="reveal active">Fill in a 2 x 3 table A such that:</p>
@@ -82,17 +82,17 @@
                 </ul>
 
                 <p class="reveal active">A table satisfying these constraints:</p>
-                <div class="reveal active" style="overflow-x: auto; margin-bottom: 2rem;">
-                    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                <div class="reveal active table-container">
+                    <table class="data-table">
                         <tr>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">-3</td>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">2</td>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">-1</td>
+                            <td>-3</td>
+                            <td>2</td>
+                            <td>-1</td>
                         </tr>
                         <tr>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">10</td>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">4</td>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">3</td>
+                            <td>10</td>
+                            <td>4</td>
+                            <td>3</td>
                         </tr>
                     </table>
                 </div>
@@ -101,17 +101,17 @@
                     This is, however, not a minimal-sum solution. An actual minimal sum
                     solution to this problem is, for example:
                 </p>
-                <div class="reveal active" style="overflow-x: auto; margin-bottom: 2rem;">
-                    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                <div class="reveal active table-container">
+                    <table class="data-table">
                         <tr>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">-4</td>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">-2</td>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">0</td>
+                            <td>-4</td>
+                            <td>-2</td>
+                            <td>0</td>
                         </tr>
                         <tr>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">6</td>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">4</td>
-                            <td style="border: 1px solid var(--border-color); padding: 10px;">2</td>
+                            <td>6</td>
+                            <td>4</td>
+                            <td>2</td>
                         </tr>
                     </table>
                 </div>
@@ -120,7 +120,7 @@
                     6). The minimal solution is, in general, not unique.
                 </p>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Approach</h3>
                 <p class="reveal active">
@@ -142,21 +142,6 @@
         <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 </html>
