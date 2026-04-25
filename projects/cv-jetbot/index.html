@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetson Self Driving Robot Car | Bryan Bu Wen Bin</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../../favicon_io/site.webmanifest">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS (Design 3) -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+
+    <style>
+        .video-container-hori {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 24px;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+        }
+        .responsive-iframe-hori {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Left Home Button -->
+    <a href="../../" class="home-btn-corner" aria-label="Home">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <!-- Floating Pill Navigation -->
+    <nav class="navbar-pill">
+        <a href="#" onclick="window.history.back(); return false;" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <article class="article-container reveal active">
+            
+            <header class="article-header">
+                <h1 class="article-title">Jetson Self Driving Robot Car</h1>
+                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">Autonomous driving and obstacle avoidance using Computer Vision.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="https://github.com/Bryanbu2014/jetson-self-driving-toy-car" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> View Source</a>
+                    <a href="#endresult" class="btn btn-primary"><i class="fas fa-video"></i> View Result</a>
+                </div>
+            </header>
+
+            <img src="../../images/jetson-self-driving-robot-car/jetbot.png" alt="Jetbot" class="article-image reveal active" style="max-width: 400px; display: block; margin: 0 auto 3rem auto; object-fit: contain;">
+
+            <div class="article-content">
+                <h3 class="reveal active">Introduction</h3>
+                <p class="reveal active">
+                    This is the project in module "Computer Vision" in 4th semester of
+                    my course,
+                    <a href="https://www.th-deg.de/ki-b" target="_blank" style="color: var(--accent-color);">Artificial Intelligence</a>. The goal of this project is to programme a autonomous driving
+                    robot with computer vision techniques using
+                    <a href="https://www.waveshare.com/product/ai/jetbot-ai-kit.htm" target="_blank" style="color: var(--accent-color);">Jetson Nano Developent Kit from Waveshare</a>. The desired functions of this autonomous driving robot are road
+                    following and obstacle avoidance, which means the robot can drive by
+                    itself in a designed track and stop before it hits an obstacle.
+                </p>
+
+                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+
+                <h3 class="reveal active">Motivation: Autonomous Driving</h3>
+                <ul class="reveal active">
+                    <li>Many groundbreaking and innovative inventions in the field of Computer Vision (CV)</li>
+                    <li>Interested to see how the theories we learned are translated into code</li>
+                    <li>How different each AI models process and predicts images</li>
+                </ul>
+
+                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+
+                <h3 class="reveal active">Features</h3>
+                <ul class="reveal active">
+                    <li>Stage 1 (road following) → To drive along the designated track</li>
+                    <li>Stage 2 (collision avoidance) → To avoid obstacles as the robot drives along the designed track i.e. The robot stops if there is an obstacle ahead</li>
+                </ul>
+
+                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+
+                <h3 class="reveal active">Methodology</h3>
+                <p class="reveal active" style="margin-bottom: 10px">Workflow is concluded generally as follow:</p>
+                <ul class="reveal active">
+                    <li>Data collection</li>
+                    <li>Train a model with the data collected</li>
+                    <li>Loading the model on the Jetbot</li>
+                </ul>
+
+                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+
+                <h3 id="endresult" class="reveal active">Result / Demonstration</h3>
+                
+                <div class="video-container-hori reveal active">
+                    <iframe class="responsive-iframe-hori" src="https://drive.google.com/file/d/1yWIgXXsKZiEwRjLGGPnoC9rlUz2KaYSe/preview" allow="autoplay" frameborder="0"></iframe>
+                </div>
+                
+                <p class="reveal active">
+                    In this video, the Jetson robot car successfully drives itself
+                    around the designated track using its camera to follow the lines. It
+                    also detects obstacles in its path and stops automatically to avoid
+                    a crash.
+                </p>
+
+                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+
+                <h3 class="reveal active">Lesson Learned – In a Nutshell</h3>
+                <ul class="reveal active">
+                    <li><strong>Hardware:</strong> Understanding how to work with limited resources (Robot CPU is the biggest hardware limitation, Motor limitations).</li>
+                    <li><strong>Software:</strong> Understand how to read software parameters through documentations (Libraries break apart easily, Third party resources, Libraries are constantly updating).</li>
+                    <li><strong>Environment:</strong> Understand how the contrast in environment plays a role (High contrast environment is recommended, Too much light can interfere with decision making).</li>
+                </ul>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
