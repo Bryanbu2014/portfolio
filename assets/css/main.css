@@ -163,7 +163,7 @@ section {
   width: 150px;
   height: 150px;
   margin: 0 auto 2rem;
-  animation: float 6s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -714,7 +714,12 @@ footer a {
   transform: scale(0.6);
 }
 .hero-pop.active {
-  animation: heroPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  /* Run heroPop first, then seamlessly hand off to float.
+     Both target `transform`, but they are staggered in time so they
+     never compete — heroPop owns the first 0.6 s, float owns everything after. */
+  animation:
+    heroPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+    float    3s   0.6s ease-in-out infinite;
 }
 @keyframes heroPop {
   0%   { opacity: 0; transform: scale(0.6); }
