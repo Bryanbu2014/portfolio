@@ -1,38 +1,37 @@
-Prologue by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# Bryan Bu Wen Bin – Personal Portfolio
 
-This is Prologue, a simple, single page responsive site template. It features a
-clean, minimalistic design and a sticky sidebar with navigation-linked scrolling.
+![GitHub Release](https://img.shields.io/github/v/release/Bryanbu2014/portfolio)
+![Custom Release Date](https://img.shields.io/badge/release_date-April_25,_2026-gre)
 
-Demo content images\* are courtesy of the ridiculously talented Felicia Simion. Check out
-more of her amazing work over at deviantART:
+A modern, responsive personal portfolio website showcasing my academic journey, projects, and achievements in the field of Artificial Intelligence.
 
-http://ineedchemicalx.deviantart.com/
+## 🚀 About the Project
 
-(\* = Not included! Only meant for use with my own on-site demo, so please do NOT download
-and/or use any of Felicia's work without her explicit permission!)
+This portfolio was custom-built from the ground up using pure HTML5, modern CSS3 (with CSS Variables, Flexbox, and CSS Grid), and lightweight Vanilla JavaScript. It features a sleek, minimalist aesthetic, interactive Bento box layouts, and clean directory-based routing.
 
-Demo banner images\* courtesy of Unsplash, a radtastic collection of CC0 (public domain)
-images you can use for pretty much whatever.
+### Key Features
+- **Custom CSS Framework:** A lightweight, completely bespoke design system (`main.css`) built specifically for this portfolio, replacing heavy legacy templates.
+- **Bento Box Grid:** A responsive, dynamic, and visually engaging grid layout for project and achievement cards.
+- **Persistent State:** Uses browser `sessionStorage` to seamlessly remember user interactions (like the "Load More" expanded state) across page navigation.
+- **Clean Routing:** Directory-based structure (e.g., `/projects/gan/`) instead of raw `.html` files for professional, modern URLs.
+- **Responsive Design:** Fully responsive layout that adapts gracefully to mobile, tablet, and desktop viewports.
 
-(\* = Not included)
+## 📁 Directory Structure
 
-AJ
-aj@lkn.io | @ajlkn
+- `index.html` - The main landing page.
+- `version-history.html` - An internal changelog tracking the portfolio's development.
+- `assets/` - Contains core CSS (`main.css`) and other static assets.
+- `images/` - Portfolio images, logos, and project thumbnails.
+- `projects/` - Individual project pages with embedded videos and details (GAN, Jetbot, Z3 Solver, Cinema Chatbot, Piano Covers).
+- `achievements/` - Individual achievement pages with embedded certificates (CERN, Bosch, Congatec).
 
-PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
+## 👨‍💻 About Me
 
-Credits:
+I am an Artificial Intelligence student at the Deggendorf Institute of Technology. My work includes academic projects and production-ready industrial applications, with experience ranging from cloud-based data pipelines at Bosch to autonomous robot cars and generative networks.
 
-    Demo Images:
-    	Felicia Simion (ineedchemicalx.deviantart.com)
-    	Unsplash (unsplash.com)
+## 🛠️ Technology Stack
+- **Frontend:** HTML5, Vanilla CSS3, Vanilla JavaScript
+- **Icons:** Font Awesome (v6.4.0)
 
-    Icons:
-    	Font Awesome (fontawesome.io)
-
-    Other
-    	jQuery (jquery.com)
-    	Scrollex (github.com/ajlkn/jquery.scrollex)
-    	Responsive Tools (github.com/ajlkn/responsive-tools)
+## 📄 License
+This is a personal portfolio. All rights reserved by Bryan Bu Wen Bin, 2026.
