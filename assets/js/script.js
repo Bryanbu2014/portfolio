@@ -12,7 +12,7 @@
 
     function skipToEnd() {
         imgWrap.style.opacity   = '1';
-        imgWrap.style.transform = 'scale(1)';
+        imgWrap.style.transform = ''; // don't set inline transform — lets CSS float animation run
         h1.style.opacity        = '1';
         h1.style.transform      = 'translateY(0)';
         twEl.textContent        = twText;
