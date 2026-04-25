@@ -25,7 +25,7 @@
 
     <!-- Floating Pill Navigation -->
     <nav class="navbar-pill">
-        <a href="#" onclick="window.history.back(); return false;" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
+        <a href="#" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
     </nav>
 
     <!-- Main Content -->
@@ -34,8 +34,8 @@
             
             <header class="article-header">
                 <h1 class="article-title">Cinema Chatbot</h1>
-                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">A virtual cinema assistant powered by Rasa</p>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
+                <p class="changelog-subtitle">A virtual cinema assistant powered by Rasa</p>
+                <div class="hero-btns">
                     <a href="https://github.com/Bryanbu2014/cinema-chatbot" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> View Source</a>
                     <a href="#demo" class="btn btn-primary"><i class="fas fa-video"></i> View Result</a>
                 </div>
@@ -46,7 +46,7 @@
                 <p class="reveal active">
                     This is the project that was done during my course of study. In this
                     project, a friend and I were asked to develop a simple chatbot using
-                    the <a href="https://rasa.com/" target="_blank" style="color: var(--accent-color);">Rasa</a> framework.
+                    the <a href="https://rasa.com/" target="_blank" class="accent-link">Rasa</a> framework.
                 </p>
                 <p class="reveal active">
                     There were initially a few ideas that came to our mind, such as
@@ -55,7 +55,7 @@
                     could be a website or an application.
                 </p>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 class="reveal active">Cinema Chatbot</h3>
                 <p class="reveal active">
@@ -78,17 +78,17 @@
                 </p>
                 <p class="reveal active">
                     For more technical details, please refer to my
-                    <a href="https://github.com/Bryanbu2014/cinema-chatbot" target="_blank" style="color: var(--accent-color);">Github repository</a>.
+                    <a href="https://github.com/Bryanbu2014/cinema-chatbot" target="_blank" class="accent-link">Github repository</a>.
                 </p>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
                 <h3 id="demo" class="reveal active">Short Demo</h3>
-                <p class="reveal active" style="margin-bottom: 2rem;">
+                <p class="reveal active mb-4">
                     This demo illustrates how a user can inquire about movie
                     availability.
                 </p>
-                <img src="../../images/cinema-chatbot/cinema-chatbot.gif" alt="Cinema Chatbot Demo" class="reveal active" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: block; margin: 0 auto;">
+                <img src="../../images/cinema-chatbot/cinema-chatbot.gif" alt="Cinema Chatbot Demo" class="article-image reveal active">
             </div>
         </article>
     </main>
@@ -98,21 +98,6 @@
         <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 </html>

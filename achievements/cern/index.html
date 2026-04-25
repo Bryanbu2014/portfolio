@@ -25,7 +25,7 @@
 
     <!-- Floating Pill Navigation -->
     <nav class="navbar-pill">
-        <a href="#" onclick="window.history.back(); return false;" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
+        <a href="#" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
     </nav>
 
     <!-- Main Content -->
@@ -34,19 +34,19 @@
             
             <header class="article-header">
                 <h1 class="article-title">CERN GridWars Hackathon</h1>
-                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">1st Runner Up</p>
+                <p class="changelog-subtitle">1st Runner Up</p>
             </header>
 
             <div class="article-content">
-                <h3 class="reveal active" style="text-align: center;">Certificate of Participation</h3>
-                <div class="cv-container reveal active" style="margin: 2rem auto; max-width: 800px;">
+                <h3 class="reveal active text-center">Certificate of Participation</h3>
+                <div class="cv-container reveal active mb-4" style="margin: 2rem auto; max-width: 800px;">
                     <iframe src="https://drive.google.com/file/d/15uyLQseBoFaOcf1KNG_cZgIT0kxkkzrt/preview" allow="autoplay"></iframe>
                 </div>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="reveal active version-separator">
 
-                <h3 class="reveal active" style="text-align: center;">Hackathon Award Certificate</h3>
-                <div class="cert-container reveal active" style="margin: 2rem auto; max-width: 900px;">
+                <h3 class="reveal active text-center">Hackathon Award Certificate</h3>
+                <div class="cert-container reveal active mb-4" style="margin: 2rem auto; max-width: 900px;">
                     <iframe src="https://drive.google.com/file/d/1XIwS49t-YEdpsHi0AH7S6N8dzvmJPkqJ/preview" allow="autoplay"></iframe>
                 </div>
             </div>
@@ -58,21 +58,6 @@
         <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 </html>

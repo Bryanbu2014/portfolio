@@ -19,7 +19,7 @@
 <body>
 
     <!-- Top Left Home Button -->
-    <a href="#" class="home-btn-corner" aria-label="Home">
+    <a href="index.html" class="home-btn-corner" aria-label="Home">
         <i class="fas fa-home"></i>
     </a>
 
@@ -41,14 +41,13 @@
     <!-- Main Content -->
     <main>
         
-        <!-- Hero Section -->
         <section id="hero" class="hero">
-            <div class="hero-img-container">
+            <div class="hero-img-container hero-pop" id="hero-img-wrap">
                 <img src="images/profile-pic.JPG" alt="Profile Picture" class="hero-img">
             </div>
-            <h1 class="reveal" style="font-size: 4.5rem; margin-bottom: 0.5rem;">Hi, I'm <span class="gradient-text">Bryan.</span></h1>
-            <p class="reveal" style="font-size: 1.5rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2rem;">I'm an Artificial Intelligence student, eager to explore the vast possibilities of AI and passionate about learning how to build robust software solutions powered by AI.</p>
-            <div class="reveal" style="display: flex; gap: 1rem; justify-content: center;">
+            <h1 class="hero-rise" id="hero-h1">Hi, I'm <span class="gradient-text">Bryan.</span></h1>
+            <p id="hero-p"><span id="typewriter-text"></span><span id="typewriter-cursor" class="typewriter-cursor">&nbsp;</span></p>
+            <div class="hero-fade hero-btns" id="hero-btn">
                 <a href="#projects" class="btn btn-primary">Explore My Work</a>
             </div>
         </section>
@@ -85,27 +84,27 @@
             <div class="bento-grid">
                 
                 <div class="bento-item reveal">
-                    <a href="./projects/gan/" class="project-card">
+                    <a href="./projects/paper-trading-lab/" class="project-card">
                         <div class="img-wrapper">
-                            <img src="images/generative-adversarial-network/gan-face.jpg" alt="gan-resized">
+                            <img src="images/paper-trading-lab/paper-trading-lab-logo.png" alt="Paper Trading Lab">
                         </div>
-                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
-                            <h3>Generative Adversarial Network</h3>
+                        <div class="project-info">
+                            <h3 class="project-title">Paper Trading Lab<span class="ongoing-badge"><i class="fas fa-fire"></i>Ongoing</span></h3>
                             <p></p>
-                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
                 </div>
 
                 <div class="bento-item reveal">
-                    <a href="./projects/grid-wars/" class="project-card">
+                    <a href="./projects/gan/" class="project-card">
                         <div class="img-wrapper">
-                            <img src="images/grip-wars.webp" alt="z3-solver">
+                            <img src="images/generative-adversarial-network/gan-face.jpg" alt="gan-resized">
                         </div>
-                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
-                            <h3>Grid Wars</h3>
+                        <div class="project-info">
+                            <h3>Generative Adversarial Network</h3>
                             <p></p>
-                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
                 </div>
@@ -115,48 +114,59 @@
                         <div class="img-wrapper">
                             <img src="images/jetson-self-driving-robot-car/jetbot.png" alt="Jetbot">
                         </div>
-                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                        <div class="project-info">
                             <h3>Jetson Self Driving Robot Car</h3>
                             <p></p>
-                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Hidden Projects to be loaded -->
-                <div class="bento-item hidden-project" style="display: none;">
+                <div class="bento-item hidden-project">
+                    <a href="./projects/grid-wars/" class="project-card">
+                        <div class="img-wrapper">
+                            <img src="images/grip-wars.webp" alt="grid wars">
+                        </div>
+                        <div class="project-info">
+                            <h3>Grid Wars</h3>
+                            <p></p>
+                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="bento-item hidden-project">
                     <a href="./projects/z3-solver/" class="project-card">
                         <div class="img-wrapper">
                             <img src="images/z3-solver-square.jpg" alt="z3 solver">
                         </div>
-                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                        <div class="project-info">
                             <h3>Z3 Solver</h3>
                             <p></p>
-                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
                 </div>
 
-                <div class="bento-item hidden-project" style="display: none;">
+                <div class="bento-item hidden-project">
                     <a href="./projects/cinema-chatbot/" class="project-card">
                         <div class="img-wrapper">
                             <img src="images/chatbot.jpg" alt="cinema chatbot">
                         </div>
-                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                        <div class="project-info">
                             <h3>Cinema Chatbot</h3>
                             <p></p>
-                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
                 </div>
 
-
-
             </div>
 
-            <div class="reveal" style="text-align: center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem;">
+            <div class="reveal projects-controls">
                 <button id="loadMoreProjects" class="btn btn-outline">Load More Projects</button>
-                <button id="showLessProjects" class="btn btn-outline" style="display: none;">Show Less Projects</button>
+                <button id="showLessProjects" class="btn btn-outline">Show Less Projects</button>
             </div>
         </section>
 
@@ -165,19 +175,19 @@
             <h2 class="section-title reveal">Achievements</h2>
 
             <div class="achievements-grid">
-                <a href="./achievements/cern/" class="achievement-card reveal">
-                    <img src="images/cern-logo.png" alt="cern-logo">
-                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">CERN GridWars Hackathon - 1st Runner Up</h3>
-                </a>
-
                 <a href="./achievements/congatec/" class="achievement-card reveal">
                     <img src="images/congatec-logo.png" alt="congatec-logo">
-                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">Working Student Certificate</h3>
+                    <h3>Working Student Certificate</h3>
+                </a>
+                
+                <a href="./achievements/bosch/" class="achievement-card reveal">
+                    <img src="images/bosch-logo-without-name.jpg" alt="bosch-logo">
+                    <h3>Mandatory Internship Certificate</h3>
                 </a>
 
-                <a href="./achievements/bosch/" class="achievement-card reveal">
-                    <img src="images/bosch-logo.jpg" alt="bosch-logo" style="border-radius: 50%;">
-                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">Mandatory Internship Certificate</h3>
+                <a href="./achievements/cern/" class="achievement-card reveal">
+                    <img src="images/cern-logo.png" alt="cern-logo">
+                    <h3>CERN GridWars Hackathon - 1st Runner Up</h3>
                 </a>
 
             </div>
@@ -195,8 +205,8 @@
         <!-- Contact Section -->
         <section id="contact">
             <div class="contact-wrapper reveal">
-                <h2 class="contact-title" style="margin-bottom: 1.5rem;">Contact</h2>
-                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 3rem;">
+                <h2 class="contact-title">Contact</h2>
+                <p class="contact-subtitle">
                     Feel free to reach out for collaborations, questions, or even just to say hello! Drop me a message below and I'll get back to you soon.
                 </p>
                 
@@ -215,11 +225,12 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
-        <div style="margin-top: 1.5rem; display: flex; justify-content: center;">
-            <a href="version-history.html" style="display: inline-flex; align-items: center; gap: 10px; background: var(--surface-hover); border: 1px solid var(--border-color); padding: 5px 12px 5px 6px; border-radius: 50px; font-size: 0.85rem; color: var(--text-muted); font-family: 'Space Grotesk', sans-serif; text-decoration: none; cursor: pointer;">
-                <div style="background: var(--accent-color); color: #fff; padding: 2px 10px; border-radius: 50px; font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-code-branch" style="margin-right: 4px; font-size: 0.7rem;"></i>v2.0.0</div>
-                <span style="font-weight: 600;">April 25, 2026</span>
+        <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.
+        <br>All company logos belong to their respective owners.</p>
+        <div class="footer-version-wrapper">
+            <a href="version-history.html" class="version-badge">
+                <div class="version-badge-tag"><i class="fas fa-code-branch"></i>v2.1.0</div>
+                <span class="version-badge-date">TBD</span>
             </a>
         </div>
     </footer>
@@ -230,162 +241,6 @@
     </div>
 
     <!-- Scripts -->
-    <script>
-        // Mobile Navigation Toggle
-        const navToggle = document.getElementById('navToggle');
-        const navbarPill = document.getElementById('navbarPill');
-        
-        navToggle.addEventListener('click', () => {
-            navbarPill.classList.toggle('mobile-active');
-            const icon = navToggle.querySelector('i');
-            if(navbarPill.classList.contains('mobile-active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Close sidebar when clicking a link (mobile)
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if(window.innerWidth <= 768) {
-                    navbarPill.classList.remove('mobile-active');
-                    const icon = navToggle.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-        });
-
-        // Active Navigation Link on Scroll
-        const sections = document.querySelectorAll('section');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 250) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Copy email logic
-        const copyEmailBtn = document.getElementById('copyEmailBtn');
-        const notification = document.getElementById('copyNotification');
-        const email = 'bubryanwb@gmail.com';
-
-        copyEmailBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            navigator.clipboard.writeText(email).then(() => {
-                notification.classList.add('show');
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000);
-            });
-        });
-
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Thank you for your message! I will get back to you soon.');
-                contactForm.reset();
-            });
-        }
-
-        // Load More / Show Less Projects Logic
-        const loadMoreBtn = document.getElementById('loadMoreProjects');
-        const showLessBtn = document.getElementById('showLessProjects');
-        const hiddenProjects = document.querySelectorAll('.hidden-project');
-        
-        // Check if projects were previously expanded
-        if (sessionStorage.getItem('projectsExpanded') === 'true') {
-            hiddenProjects.forEach(p => {
-                p.style.display = 'block';
-                p.style.animationDelay = '0s';
-                p.classList.add('reveal', 'active');
-            });
-            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-            if (showLessBtn) showLessBtn.style.display = 'block';
-        }
-
-        if(loadMoreBtn) {
-            loadMoreBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                let loadedCount = 0;
-                const projectsToLoad = 3;
-
-                for(let i = 0; i < hiddenProjects.length; i++) {
-                    if(hiddenProjects[i].style.display === 'none') {
-                        hiddenProjects[i].style.display = 'block';
-                        hiddenProjects[i].style.animationDelay = `${loadedCount * 0.15}s`;
-                        
-                        hiddenProjects[i].classList.add('reveal');
-                        void hiddenProjects[i].offsetWidth; // force reflow
-                        hiddenProjects[i].classList.add('active');
-                        loadedCount++;
-                    }
-                    if(loadedCount === projectsToLoad) break;
-                }
-
-                const remainingHidden = Array.from(hiddenProjects).filter(p => p.style.display === 'none').length;
-                if(remainingHidden === 0) {
-                    loadMoreBtn.style.display = 'none';
-                    showLessBtn.style.display = 'block';
-                }
-                
-                sessionStorage.setItem('projectsExpanded', 'true');
-            });
-        }
-
-        if(showLessBtn) {
-            showLessBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                hiddenProjects.forEach(p => {
-                    p.style.display = 'none';
-                    p.classList.remove('active');
-                });
-                
-                showLessBtn.style.display = 'none';
-                loadMoreBtn.style.display = 'block';
-                sessionStorage.setItem('projectsExpanded', 'false');
-                
-                // Scroll back up to the projects section nicely
-                document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-            });
-        }
-
-        // Intersection Observer for Reveal Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Optional: animate only once
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
