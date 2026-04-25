@@ -326,6 +326,13 @@ section {
   width: 100%;
   border-radius: 16px;
   border: 1px solid var(--border-color);
+  animation: floatProfile 6s ease-in-out infinite;
+}
+
+@keyframes floatProfile {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 /* Projects Bento */
