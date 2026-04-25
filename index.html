@@ -15,11 +15,17 @@
     
     <!-- Custom CSS (Design 3) -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        @keyframes cursor-blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
 <body>
 
     <!-- Top Left Home Button -->
-    <a href="#" class="home-btn-corner" aria-label="Home">
+    <a href="#" class="home-btn-corner" aria-label="Home" onclick="sessionStorage.removeItem('projectsExpanded'); sessionStorage.removeItem('animationsPlayed'); window.location.href = window.location.pathname; return false;">
         <i class="fas fa-home"></i>
     </a>
 
@@ -43,12 +49,12 @@
         
         <!-- Hero Section -->
         <section id="hero" class="hero">
-            <div class="hero-img-container">
+            <div class="hero-img-container hero-pop" id="hero-img-wrap">
                 <img src="images/profile-pic.JPG" alt="Profile Picture" class="hero-img">
             </div>
-            <h1 class="reveal" style="font-size: 4.5rem; margin-bottom: 0.5rem;">Hi, I'm <span class="gradient-text">Bryan.</span></h1>
-            <p class="reveal" style="font-size: 1.5rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2rem;">I'm an Artificial Intelligence student, eager to explore the vast possibilities of AI and passionate about learning how to build robust software solutions powered by AI.</p>
-            <div class="reveal" style="display: flex; gap: 1rem; justify-content: center;">
+            <h1 class="hero-rise" id="hero-h1" style="font-size: 4.5rem; margin-bottom: 0.5rem;">Hi, I'm <span class="gradient-text">Bryan.</span></h1>
+            <p id="hero-p" style="font-size: 1.5rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2rem; min-height: 4rem; opacity: 0;"><span id="typewriter-text"></span><span id="typewriter-cursor" style="display:inline-block; width: 2px; background: var(--accent-color); margin-left: 2px; animation: cursor-blink 0.75s step-end infinite;">&nbsp;</span></p>
+            <div class="hero-fade" id="hero-btn" style="display: flex; gap: 1rem; justify-content: center;">
                 <a href="#projects" class="btn btn-primary">Explore My Work</a>
             </div>
         </section>
@@ -85,12 +91,12 @@
             <div class="bento-grid">
                 
                 <div class="bento-item reveal">
-                    <a href="./projects/gan/" class="project-card">
+                    <a href="./projects/paper-trading-lab/" class="project-card">
                         <div class="img-wrapper">
-                            <img src="images/generative-adversarial-network/gan-face.jpg" alt="gan-resized">
+                            <img src="images/paper-trading-lab/paper-trading-lab-logo.png" alt="Paper Trading Lab">
                         </div>
                         <div style="flex-grow: 1; display: flex; flex-direction: column;">
-                            <h3>Generative Adversarial Network</h3>
+                            <h3 style="display: flex; align-items: center; flex-wrap: wrap;">Paper Trading Lab<span class="ongoing-badge"><i class="fas fa-fire"></i>Ongoing</span></h3>
                             <p></p>
                             <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
                         </div>
@@ -98,12 +104,12 @@
                 </div>
 
                 <div class="bento-item reveal">
-                    <a href="./projects/grid-wars/" class="project-card">
+                    <a href="./projects/gan/" class="project-card">
                         <div class="img-wrapper">
-                            <img src="images/grip-wars.webp" alt="z3-solver">
+                            <img src="images/generative-adversarial-network/gan-face.jpg" alt="gan-resized">
                         </div>
                         <div style="flex-grow: 1; display: flex; flex-direction: column;">
-                            <h3>Grid Wars</h3>
+                            <h3>Generative Adversarial Network</h3>
                             <p></p>
                             <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
                         </div>
@@ -124,6 +130,19 @@
                 </div>
 
                 <!-- Hidden Projects to be loaded -->
+                <div class="bento-item hidden-project" style="display: none;">
+                    <a href="./projects/grid-wars/" class="project-card">
+                        <div class="img-wrapper">
+                            <img src="images/grip-wars.webp" alt="grid wars">
+                        </div>
+                        <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3>Grid Wars</h3>
+                            <p></p>
+                            <span style="color: var(--text-main); margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">View Project <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></span>
+                        </div>
+                    </a>
+                </div>
+
                 <div class="bento-item hidden-project" style="display: none;">
                     <a href="./projects/z3-solver/" class="project-card">
                         <div class="img-wrapper">
@@ -165,19 +184,19 @@
             <h2 class="section-title reveal">Achievements</h2>
 
             <div class="achievements-grid">
-                <a href="./achievements/cern/" class="achievement-card reveal">
-                    <img src="images/cern-logo.png" alt="cern-logo">
-                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">CERN GridWars Hackathon - 1st Runner Up</h3>
-                </a>
-
                 <a href="./achievements/congatec/" class="achievement-card reveal">
                     <img src="images/congatec-logo.png" alt="congatec-logo">
                     <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">Working Student Certificate</h3>
                 </a>
-
+                
                 <a href="./achievements/bosch/" class="achievement-card reveal">
-                    <img src="images/bosch-logo.jpg" alt="bosch-logo" style="border-radius: 50%;">
+                    <img src="images/bosch-logo-without-name.jpg" alt="bosch-logo" style="border-radius: 50%;">
                     <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">Mandatory Internship Certificate</h3>
+                </a>
+
+                <a href="./achievements/cern/" class="achievement-card reveal">
+                    <img src="images/cern-logo.png" alt="cern-logo">
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">CERN GridWars Hackathon - 1st Runner Up</h3>
                 </a>
 
             </div>
@@ -215,11 +234,12 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
+        <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.
+        <br>All company logos belong to their respective owners.</p>
         <div style="margin-top: 1.5rem; display: flex; justify-content: center;">
             <a href="version-history.html" style="display: inline-flex; align-items: center; gap: 10px; background: var(--surface-hover); border: 1px solid var(--border-color); padding: 5px 12px 5px 6px; border-radius: 50px; font-size: 0.85rem; color: var(--text-muted); font-family: 'Space Grotesk', sans-serif; text-decoration: none; cursor: pointer;">
-                <div style="background: var(--accent-color); color: #fff; padding: 2px 10px; border-radius: 50px; font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-code-branch" style="margin-right: 4px; font-size: 0.7rem;"></i>v2.0.0</div>
-                <span style="font-weight: 600;">April 25, 2026</span>
+                <div style="background: var(--accent-color); color: #fff; padding: 2px 10px; border-radius: 50px; font-weight: 700; letter-spacing: 0.5px;"><i class="fas fa-code-branch" style="margin-right: 4px; font-size: 0.7rem;"></i>v2.1.0</div>
+                <span style="font-weight: 600;">TBD</span>
             </a>
         </div>
     </footer>
@@ -231,6 +251,59 @@
 
     <!-- Scripts -->
     <script>
+        // Hero Sequential Animation
+        (function() {
+            const imgWrap  = document.getElementById('hero-img-wrap');
+            const h1       = document.getElementById('hero-h1');
+            const heroPara = document.getElementById('hero-p');
+            const heroBtn  = document.getElementById('hero-btn');
+            const twEl     = document.getElementById('typewriter-text');
+            const cursor   = document.getElementById('typewriter-cursor');
+            const twText   = "I'm an Artificial Intelligence student, eager to explore the vast possibilities of AI and passionate about learning how to build robust software solutions powered by AI.";
+
+            function skipToEnd() {
+                imgWrap.style.opacity   = '1';
+                imgWrap.style.transform = 'scale(1)';
+                h1.style.opacity        = '1';
+                h1.style.transform      = 'translateY(0)';
+                twEl.textContent        = twText;
+                cursor.style.display    = 'none';
+                heroPara.style.opacity  = '1';
+                heroBtn.style.opacity   = '1';
+                heroBtn.style.transform = 'scale(1)';
+            }
+
+            if (sessionStorage.getItem('animationsPlayed') === 'true') {
+                skipToEnd();
+                return;
+            }
+
+            let i = 0;
+            function type() {
+                if (i < twText.length) {
+                    twEl.textContent += twText.charAt(i++);
+                    setTimeout(type, 20);
+                } else {
+                    setTimeout(() => {
+                        cursor.style.display = 'none';
+                        heroBtn.classList.add('active');   // 4. Pop in button
+                    }, 500);
+                }
+            }
+
+            // 1. Pop in picture
+            setTimeout(() => imgWrap.classList.add('active'), 100);
+
+            // 2. Rise in heading
+            setTimeout(() => h1.classList.add('active'), 550);
+
+            // 3. Fade in paragraph, then start typewriter
+            setTimeout(() => {
+                heroPara.style.opacity = '1';
+                type();
+            }, 1100);
+        })();
+
         // Mobile Navigation Toggle
         const navToggle = document.getElementById('navToggle');
         const navbarPill = document.getElementById('navbarPill');
@@ -369,23 +442,33 @@
         }
 
         // Intersection Observer for Reveal Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Optional: animate only once
-                }
+        if (sessionStorage.getItem('animationsPlayed') === 'true') {
+            document.querySelectorAll('.reveal').forEach((el) => {
+                el.style.animation = 'none';
+                el.style.opacity = '1';
+                el.classList.add('active');
             });
-        }, observerOptions);
+        } else {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
 
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
+            });
+            
+            sessionStorage.setItem('animationsPlayed', 'true');
+        }
     </script>
 </body>
 </html>
