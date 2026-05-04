@@ -1,7 +1,7 @@
 # Bryan Bu Wen Bin – Personal Portfolio
 
 ![GitHub Release](https://img.shields.io/github/v/release/Bryanbu2014/portfolio)
-![Custom Release Date](https://img.shields.io/badge/release_date-April_25,_2026-gre)
+![Custom Release Date](https://img.shields.io/badge/release_date-May_04,_2026-gre)
 
 A modern, responsive personal portfolio website showcasing my academic journey, projects, and achievements in the field of Artificial Intelligence.
 
