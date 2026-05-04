@@ -1,3 +1,12 @@
+// Clear animation state on page reload to allow animations to replay
+if (performance.getEntriesByType("navigation").length > 0) {
+    if (performance.getEntriesByType("navigation")[0].type === "reload") {
+        sessionStorage.removeItem('animationsPlayed');
+    }
+} else if (window.performance && window.performance.navigation && window.performance.navigation.type === 1) {
+    sessionStorage.removeItem('animationsPlayed');
+}
+
 // Hero Sequential Animation
 (function() {
     const imgWrap  = document.getElementById('hero-img-wrap');
