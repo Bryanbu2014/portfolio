@@ -1,327 +1,314 @@
-// Clear animation state on page reload to allow animations to replay
-if (performance.getEntriesByType("navigation").length > 0) {
-    if (performance.getEntriesByType("navigation")[0].type === "reload") {
-        sessionStorage.removeItem('animationsPlayed');
-    }
-} else if (window.performance && window.performance.navigation && window.performance.navigation.type === 1) {
-    sessionStorage.removeItem('animationsPlayed');
-}
+// Portfolio interactions (v3). Loaded with `defer`, so the DOM is ready.
+// Every feature checks for its own elements, so this file is safe on every page.
+'use strict';
 
-// Hero Sequential Animation
-(function() {
-    const imgWrap  = document.getElementById('hero-img-wrap');
-    const h1       = document.getElementById('hero-h1');
-    const heroPara = document.getElementById('hero-p');
-    const heroBtn  = document.getElementById('hero-btn');
-    const twEl     = document.getElementById('typewriter-text');
-    const cursor   = document.getElementById('typewriter-cursor');
-    const twText   = "I'm an Artificial Intelligence student, eager to explore the vast possibilities of AI and passionate about learning how to build robust software solutions powered by AI.";
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (!imgWrap || !h1 || !heroPara || !heroBtn || !twEl || !cursor) return;
+// Intro animations play once per tab session (state resolved early in boot.js).
+const SESSION_KEY = 'animationsPlayed';
+const skipIntro = prefersReducedMotion || document.documentElement.classList.contains('intro-seen');
 
-    function skipToEnd() {
-        imgWrap.style.opacity   = '1';
-        imgWrap.style.transform = ''; // don't set inline transform — lets CSS float animation run
-        h1.style.opacity        = '1';
-        h1.style.transform      = 'translateY(0)';
-        twEl.textContent        = twText;
-        cursor.style.display    = 'none';
-        heroPara.style.opacity  = '1';
-        heroBtn.style.opacity   = '1';
-        heroBtn.style.transform = 'scale(1)';
-    }
+/* Theme toggle ----------------------------------------------------------- */
+(function initThemeToggle() {
+    const button = document.querySelector('[data-theme-toggle]');
+    if (!button) return;
 
-    if (sessionStorage.getItem('animationsPlayed') === 'true') {
-        skipToEnd();
+    const root = document.documentElement;
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const currentTheme = () => root.dataset.theme || (systemDark.matches ? 'dark' : 'light');
+
+    const render = () => {
+        const isDark = currentTheme() === 'dark';
+        const icon = button.querySelector('i');
+        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        button.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+    };
+
+    button.addEventListener('click', () => {
+        const next = currentTheme() === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try {
+            localStorage.setItem('theme', next);
+        } catch (e) {
+            // Non-persistent fallback is fine.
+        }
+        render();
+    });
+
+    systemDark.addEventListener('change', render);
+    render();
+})();
+
+/* Header: border once scrolled ------------------------------------------ */
+(function initHeader() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    const update = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+})();
+
+/* Mobile navigation ------------------------------------------------------ */
+(function initMobileNav() {
+    const toggle = document.querySelector('[data-nav-toggle]');
+    const nav = toggle && document.getElementById(toggle.getAttribute('aria-controls'));
+    if (!toggle || !nav) return;
+
+    const setOpen = (open) => {
+        nav.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.querySelector('i').className = open ? 'fas fa-xmark' : 'fas fa-bars';
+    };
+
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    nav.addEventListener('click', (e) => {
+        if (e.target.closest('a')) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+            toggle.focus();
+        }
+    });
+})();
+
+/* Active section highlighting ------------------------------------------- */
+(function initScrollSpy() {
+    const links = document.querySelectorAll('.site-nav--primary a[href^="#"]');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+
+    const byId = new Map();
+    links.forEach((link) => byId.set(link.getAttribute('href').slice(1), link));
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            links.forEach((link) => {
+                link.classList.remove('is-active');
+                link.removeAttribute('aria-current');
+            });
+            const active = byId.get(entry.target.id);
+            if (active) {
+                active.classList.add('is-active');
+                active.setAttribute('aria-current', 'location');
+            }
+        });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    byId.forEach((_, id) => {
+        const section = document.getElementById(id);
+        if (section) observer.observe(section);
+    });
+})();
+
+/* Hero typewriter -------------------------------------------------------- */
+(function initTypewriter() {
+    const el = document.querySelector('[data-typewriter]');
+    if (!el) return;
+
+    const text = el.textContent.trim();
+    if (skipIntro) return; // Leave the static text as-is.
+
+    // Ghost keeps the final layout height; screen readers get the full sentence once.
+    el.textContent = '';
+    const ghost = document.createElement('span');
+    ghost.className = 'typewriter__ghost';
+    ghost.setAttribute('aria-hidden', 'true');
+    ghost.textContent = text;
+
+    const live = document.createElement('span');
+    live.className = 'typewriter__live';
+    live.setAttribute('aria-hidden', 'true');
+
+    const srText = document.createElement('span');
+    srText.className = 'visually-hidden';
+    srText.textContent = text;
+
+    el.append(ghost, live, srText);
+    el.classList.add('typewriter', 'is-typing');
+
+    let i = 0;
+    const type = () => {
+        live.textContent = text.slice(0, ++i);
+        if (i < text.length) {
+            window.setTimeout(type, 18);
+        } else {
+            window.setTimeout(() => el.classList.remove('is-typing'), 900);
+        }
+    };
+    window.setTimeout(type, 450);
+})();
+
+/* Scroll reveal ---------------------------------------------------------- */
+(function initReveal() {
+    const items = document.querySelectorAll('.reveal');
+    if (!items.length) return;
+
+    if (skipIntro || !('IntersectionObserver' in window)) {
+        items.forEach((el) => el.classList.add('is-visible'));
         return;
     }
 
-    let i = 0;
-    function type() {
-        if (i < twText.length) {
-            twEl.textContent += twText.charAt(i++);
-            setTimeout(type, 20);
-        } else {
-            setTimeout(() => {
-                cursor.style.display = 'none';
-                heroBtn.classList.add('active');   // 4. Pop in button
-            }, 500);
-        }
-    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    // 1. Pop in picture
-    setTimeout(() => imgWrap.classList.add('active'), 100);
-
-    // 2. Rise in heading
-    setTimeout(() => h1.classList.add('active'), 550);
-
-    // 3. Fade in paragraph, then start typewriter
-    setTimeout(() => {
-        heroPara.style.opacity = '1';
-        type();
-    }, 1100);
+    items.forEach((el) => observer.observe(el));
 })();
 
-// Mobile Navigation Toggle
-const navToggle = document.getElementById('navToggle');
-const navbarPill = document.getElementById('navbarPill');
-
-if (navToggle && navbarPill) {
-    navToggle.addEventListener('click', () => {
-        navbarPill.classList.toggle('mobile-active');
-        const icon = navToggle.querySelector('i');
-        if(navbarPill.classList.contains('mobile-active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
+if (document.querySelector('.hero')) {
+    try {
+        sessionStorage.setItem(SESSION_KEY, 'true');
+    } catch (e) {
+        // Non-persistent fallback is fine.
+    }
 }
 
-// Close sidebar when clicking a link (mobile)
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if(window.innerWidth <= 768) {
-            navbarPill.classList.remove('mobile-active');
-            const icon = navToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+/* Work index: floating image preview that follows the cursor ------------ */
+(function initWorkPreview() {
+    const list = document.querySelector('[data-preview-list]');
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    if (!list || !finePointer.matches) return;
+
+    const preview = document.createElement('div');
+    preview.className = 'work-preview';
+    preview.setAttribute('aria-hidden', 'true');
+    const img = document.createElement('img');
+    img.alt = '';
+    preview.append(img);
+    document.body.append(preview);
+
+    // Smoothly trail the cursor; jump straight there when motion is reduced.
+    const pos = { x: 0, y: 0 };
+    const target = { x: 0, y: 0 };
+    const ease = prefersReducedMotion ? 1 : 0.18;
+    let rafId = null;
+
+    const tick = () => {
+        pos.x += (target.x - pos.x) * ease;
+        pos.y += (target.y - pos.y) * ease;
+        preview.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0) translate(-50%, -50%)`;
+        rafId = Math.abs(target.x - pos.x) + Math.abs(target.y - pos.y) > 0.5
+            ? window.requestAnimationFrame(tick)
+            : null;
+    };
+
+    const hide = () => preview.classList.remove('is-visible');
+    let currentRow = null;
+
+    list.addEventListener('pointermove', (e) => {
+        const row = e.target.closest('.work-row');
+        const source = row && row.querySelector('.work-row__thumb img');
+        if (!source) {
+            hide();
+            return;
         }
-    });
-});
 
-// Active Navigation Link on Scroll
-const sections = document.querySelectorAll('section');
+        target.x = e.clientX + 40;
+        target.y = e.clientY;
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 250) {
-            current = section.getAttribute('id');
+        if (row !== currentRow) {
+            currentRow = row;
+            img.src = source.currentSrc || source.src;
         }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
+        if (!preview.classList.contains('is-visible')) {
+            // Appear at the cursor instead of sliding in from the last position.
+            pos.x = target.x;
+            pos.y = target.y;
+            preview.classList.add('is-visible');
         }
+        if (!rafId) rafId = window.requestAnimationFrame(tick);
     });
-});
 
-// Copy email logic
-const copyEmailBtn = document.getElementById('copyEmailBtn');
-const notification = document.getElementById('copyNotification');
-const email = 'bubryanwb@gmail.com';
+    list.addEventListener('pointerleave', () => {
+        currentRow = null;
+        hide();
+    });
+    window.addEventListener('scroll', hide, { passive: true });
+})();
 
-if (copyEmailBtn && notification) {
-    copyEmailBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        navigator.clipboard.writeText(email).then(() => {
-            notification.classList.add('show');
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
+/* Copy email ------------------------------------------------------------- */
+(function initCopyEmail() {
+    const button = document.querySelector('[data-copy-email]');
+    const toast = document.getElementById('toast');
+    if (!button || !toast) return;
+
+    let hideTimer;
+    const text = toast.querySelector('[data-toast-text]');
+    const showToast = () => {
+        // Re-inserting the text makes the live region announce it every time.
+        text.textContent = '';
+        window.requestAnimationFrame(() => {
+            text.textContent = toast.dataset.message;
         });
+        toast.classList.add('is-visible');
+        window.clearTimeout(hideTimer);
+        hideTimer = window.setTimeout(() => toast.classList.remove('is-visible'), 2800);
+    };
+
+    button.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(button.dataset.copyEmail);
+            showToast();
+        } catch (e) {
+            // Clipboard blocked: fall back to the mail client.
+            window.location.href = `mailto:${button.dataset.copyEmail}`;
+        }
     });
-}
+})();
 
-// Form Submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
+/* Image lightbox (native <dialog>) -------------------------------------- */
+(function initLightbox() {
+    const images = document.querySelectorAll('.clickable-image');
+    if (!images.length || typeof HTMLDialogElement !== 'function') return;
+
+    const dialog = document.createElement('dialog');
+    dialog.className = 'image-dialog';
+
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'icon-btn image-dialog__close';
+    close.setAttribute('aria-label', 'Close image');
+    const closeIcon = document.createElement('i');
+    closeIcon.className = 'fas fa-xmark';
+    closeIcon.setAttribute('aria-hidden', 'true');
+    close.append(closeIcon);
+
+    const img = document.createElement('img');
+    dialog.append(close, img);
+    document.body.append(dialog);
+
+    const closeDialog = () => dialog.close();
+    close.addEventListener('click', closeDialog);
+    dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) closeDialog(); // backdrop click
     });
-}
-
-// Load More / Show Less Projects Logic
-const loadMoreBtn = document.getElementById('loadMoreProjects');
-const showLessBtn = document.getElementById('showLessProjects');
-const hiddenProjects = document.querySelectorAll('.hidden-project');
-
-// Check if projects were previously expanded
-if (sessionStorage.getItem('projectsExpanded') === 'true') {
-    hiddenProjects.forEach(p => {
-        p.style.display = 'block';
-        p.style.animationDelay = '0s';
-        p.classList.add('reveal', 'active');
+    dialog.addEventListener('close', () => {
+        document.body.style.overflow = '';
     });
-    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-    if (showLessBtn) showLessBtn.style.display = 'block';
-}
 
-if(loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        let loadedCount = 0;
-        const projectsToLoad = 3;
+    images.forEach((image) => {
+        image.setAttribute('tabindex', '0');
+        image.setAttribute('role', 'button');
 
-        for(let i = 0; i < hiddenProjects.length; i++) {
-            // Check computed style to handle initial CSS hiding
-            if(window.getComputedStyle(hiddenProjects[i]).display === 'none') {
-                hiddenProjects[i].style.display = 'block';
-                // Clear any inline overrides that might have been set by the page load observer
-                hiddenProjects[i].style.animation = '';
-                hiddenProjects[i].style.opacity = '';
-                hiddenProjects[i].style.transform = '';
-                hiddenProjects[i].style.animationDelay = `${loadedCount * 0.15}s`;
-                
-                hiddenProjects[i].classList.add('reveal');
-                void hiddenProjects[i].offsetWidth; // force reflow
-                hiddenProjects[i].classList.add('active');
-                loadedCount++;
+        const open = () => {
+            img.src = image.currentSrc || image.src;
+            img.alt = image.alt;
+            document.body.style.overflow = 'hidden';
+            dialog.showModal();
+        };
+
+        image.addEventListener('click', open);
+        image.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                open();
             }
-            if(loadedCount === projectsToLoad) break;
-        }
-
-        const remainingHidden = Array.from(hiddenProjects).filter(p => window.getComputedStyle(p).display === 'none').length;
-        if(remainingHidden === 0) {
-            loadMoreBtn.style.display = 'none';
-            showLessBtn.style.display = 'block';
-        }
-        
-        sessionStorage.setItem('projectsExpanded', 'true');
-    });
-}
-
-if(showLessBtn) {
-    showLessBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        hiddenProjects.forEach(p => {
-            p.style.display = 'none';
-            p.classList.remove('active');
-            p.classList.remove('reveal');
-            // Clear all inline styles that might have been added by the "animationsPlayed" logic
-            p.style.animation = '';
-            p.style.opacity = '';
-            p.style.transform = '';
-            p.style.animationDelay = '';
         });
-        
-        showLessBtn.style.display = 'none';
-        loadMoreBtn.style.display = 'block';
-        sessionStorage.setItem('projectsExpanded', 'false');
-        
-        // Scroll back up to the projects section nicely
-        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
     });
-}
-
-// Intersection Observer for Reveal Animations
-const revealObserverOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
-};
-
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            revealObserver.unobserve(entry.target);
-        }
-    });
-}, revealObserverOptions);
-
-// Check animation state
-const animationsPlayed = sessionStorage.getItem('animationsPlayed') === 'true';
-const pathName = window.location.pathname;
-const isLandingPage = (pathName.endsWith('index.html') && !pathName.includes('/projects/')) || pathName === '/' || pathName.endsWith('portfolio/');
-
-document.querySelectorAll('.reveal').forEach((el) => {
-    if (animationsPlayed && isLandingPage) {
-        el.style.animation = 'none';
-        el.style.opacity = '1';
-        el.classList.add('active');
-    } else {
-        revealObserver.observe(el);
-    }
-});
-
-// Mark as played only on landing page to allow normal animations on project pages
-if (isLandingPage) {
-    sessionStorage.setItem('animationsPlayed', 'true');
-}
-
-
-
-// Global Event Listeners for Navigation
-document.addEventListener('click', (e) => {
-    // 1. Home Button Logic
-    const homeBtn = e.target.closest('.home-btn-corner');
-    if (homeBtn) {
-        sessionStorage.removeItem('projectsExpanded');
-        sessionStorage.removeItem('animationsPlayed');
-        
-        // If we are already on the landing page, just clear state and reload/scroll
-        if (isLandingPage) {
-            e.preventDefault();
-            window.location.href = window.location.pathname;
-        }
-    }
-
-    // 2. Go Back Logic
-    const backBtn = e.target.closest('a[href="#"]');
-    if (backBtn && (backBtn.textContent.includes('Go Back') || backBtn.querySelector('.fa-arrow-left') || backBtn.textContent.includes('RETURN'))) {
-        e.preventDefault();
-        window.history.back();
-    }
-
-    // 3. Version History Accordion Logic
-    const versionHeader = e.target.closest('.version-header');
-    if (versionHeader) {
-        const block = versionHeader.closest('.version-block');
-        block.classList.toggle('collapsed');
-    }
-
-    // 4. Image Modal Logic
-    const clickableImage = e.target.closest('.clickable-image');
-    if (clickableImage) {
-        // Create modal if it doesn't exist
-        let modal = document.getElementById('globalImageModal');
-        if (!modal) {
-            modal = document.createElement('div');
-            modal.id = 'globalImageModal';
-            modal.className = 'image-modal';
-            modal.innerHTML = `
-                <span class="image-modal-close">&times;</span>
-                <img class="image-modal-content" id="globalImageModalImg">
-            `;
-            document.body.appendChild(modal);
-        }
-        
-        const modalImg = document.getElementById('globalImageModalImg');
-        modalImg.src = clickableImage.src;
-        modalImg.alt = clickableImage.alt;
-        
-        // Show modal with slight delay to allow display:flex to apply before opacity transition
-        modal.style.display = 'flex';
-        // Force reflow
-        void modal.offsetWidth;
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-
-    const modalClose = e.target.closest('.image-modal-close');
-    const modalBackground = e.target.id === 'globalImageModal';
-    if (modalClose || modalBackground) {
-        const modal = document.getElementById('globalImageModal');
-        if (modal) {
-            modal.classList.remove('show');
-            document.body.style.overflow = ''; // Restore scrolling
-            
-            // Wait for transition to finish before hiding
-            setTimeout(() => {
-                if (!modal.classList.contains('show')) {
-                    modal.style.display = 'none';
-                }
-            }, 300);
-        }
-    }
-});
+})();

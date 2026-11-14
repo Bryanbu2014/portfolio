@@ -3,245 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bryan Bu Wen Bin | Home</title>
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="./favicon_io/site.webmanifest">
-    
+    <title>Bryan Bu Wen Bin | AI Engineer</title>
+    <meta name="description" content="AI Engineer building AI-powered insight platforms with RAG pipelines and AI agents.">
+    <link rel="canonical" href="https://bryanbu.me/">
+
+    <!-- Link previews (LinkedIn, X, messengers) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bryan Bu Wen Bin">
+    <meta property="og:title" content="Bryan Bu Wen Bin | AI Engineer">
+    <meta property="og:description" content="AI Engineer building AI-powered insight platforms with RAG pipelines and AI agents.">
+    <meta property="og:url" content="https://bryanbu.me/">
+    <meta property="og:image" content="https://bryanbu.me/images/profile-pic.JPG">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS (Design 3) -->
-    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Design system -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <script src="/assets/js/boot.js"></script>
+    <script src="/assets/js/script.js" defer></script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Top Left Home Button -->
-    <a href="index.html" class="home-btn-corner" aria-label="Home">
-        <i class="fas fa-home"></i>
-    </a>
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a href="#hero" class="brand" aria-label="Home">
+                <span class="brand__mark" aria-hidden="true"></span>
+                <span class="brand__name">Bryan Bu Wen Bin</span>
+            </a>
 
-    <!-- Mobile Nav Toggle -->
-    <button class="mobile-nav-toggle" id="navToggle">
-        <i class="fas fa-bars"></i>
-    </button>
+            <nav class="site-nav site-nav--primary" id="site-nav" aria-label="Primary">
+                <a href="#about">About Me</a>
+                <a href="#projects">Projects</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#cv">Curriculum Vitae</a>
+                <a href="#contact">Contact</a>
+            </nav>
 
-    <!-- Floating Pill Navigation -->
-    <nav class="navbar-pill" id="navbarPill">
-        <a href="#hero" class="nav-link active">Intro</a>
-        <a href="#about" class="nav-link">About Me</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#achievements" class="nav-link">Achievements</a>
-        <a href="#cv" class="nav-link">Curriculum Vitae</a>
-        <a href="#contact" class="nav-link">Contact</a>
-    </nav>
+            <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+    </header>
 
-    <!-- Main Content -->
-    <main>
-        
-        <section id="hero" class="hero">
-            <div class="hero-img-container hero-pop" id="hero-img-wrap">
-                <img src="images/profile-pic.JPG" alt="Profile Picture" class="hero-img">
+    <main id="main">
+
+        <!-- Intro -->
+        <section id="hero" class="container hero">
+            <div class="hero__top">
+                <h1 class="hero__title">
+                    <span class="hero__hi">Hi, I'm</span>
+                    <span class="hero__name">Bryan<span class="dot">.</span></span>
+                </h1>
+                <img src="/images/profile-pic.JPG" alt="Profile Picture" class="hero__photo" width="184" height="184" fetchpriority="high">
             </div>
-            <h1 class="hero-rise" id="hero-h1">Hi, I'm <span class="gradient-text">Bryan.</span></h1>
-            <p id="hero-p"><span id="typewriter-text"></span><span id="typewriter-cursor" class="typewriter-cursor">&nbsp;</span></p>
-            <div class="hero-fade hero-btns" id="hero-btn">
-                <a href="#projects" class="btn btn-primary">Explore My Work</a>
+            <div class="hero__bottom">
+                <p class="hero__lead" data-typewriter>AI Engineer building AI-powered insight platforms with RAG pipelines and AI agents.</p>
+                <a href="#projects" class="btn btn-primary">Explore My Work <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
             </div>
+            <a href="#about" class="hero__scroll" aria-label="Scroll to About Me"></a>
         </section>
 
-        <!-- About & Bento Box Grid -->
-        <section id="about">
-            <h2 class="section-title reveal">About Me</h2>
-            
-            <div class="bento-grid">
-                <!-- Large About Block -->
-                <div class="bento-item about-bento reveal">
-                    <div class="about-text">
-                        <p>I'm a Malaysian student at the Deggendorf Institute of Technology where I'm working towards a Bachelor's degree in <a href="https://www.th-deg.de/ki-b" target="_blank" rel="noopener noreferrer">Artificial Intelligence</a>. My passion lies in the field of Natural Language Processing, inspired by the rise of large language model (LLM). Throughout my academic journey, I find myself fascinated by the intricate ways in which LLMs can interpret, generate, and transform human language. Amazing, isn't it? This fascination has led me to seek out various projects related to the field.</p>
-                        
+        <!-- About -->
+        <section id="about" class="section">
+            <div class="container">
+                <header class="section-head reveal">
+                    <span class="section-index" aria-hidden="true">(01)</span>
+                    <h2 class="section-title">About Me</h2>
+                </header>
+
+                <div class="about">
+                    <div class="about__media reveal">
+                        <img src="/images/intro-pic.JPG" alt="Intro Pic" loading="lazy" decoding="async">
+                    </div>
+                    <div class="about__text reveal">
+                        <p>I'm a Malaysian graduate of the Deggendorf Institute of Technology, where I completed my Bachelor's degree in <a href="https://www.th-deg.de/ki-b" target="_blank" rel="noopener noreferrer">Artificial Intelligence</a> in 2026. I now work as an AI Engineer at Toolbox Cloud Solutions. My passion lies in the field of Natural Language Processing, inspired by the rise of large language model (LLM). Throughout my academic journey, I find myself fascinated by the intricate ways in which LLMs can interpret, generate, and transform human language. Amazing, isn't it? This fascination has led me to seek out various projects related to the field.</p>
+
                         <p>Through my academic path and internship role at Bosch, I have built a robust toolkit in Python, Computer Vision, and Data Analysis with cloud-based solutions. During my internship, I specialized in cloud-based data pipelines to process large and real-time datasets. My work focused on generating insights for defect detection and designing interactive dashboards to visualize these results for industrial decision-making.</p>
-                        
-                        <p>Building on top of this foundation, my Bachelor's thesis focuses on the application of Computer Vision for defect inspection. The thesis aims to bridge the gap between research and production-ready industrial applications.</p>
-                        
-                        <p>Just a brief section about my hobby to get to know more about me. Besides studies, I really enjoy music, especially playing the piano. For me, it's a fun way to relax and it also helps me to be more creative and focused, which I believe is beneficial for everything I do, including my studies and projects. If you wish to know more about my piano covers, by clicking the door emoji <a href="./projects/piano-cover/index.html" class="standalone-link">🚪</a>, you will enter my world of music.</p>
-                        
+
+                        <p>Building on top of this foundation, my Bachelor's thesis at Bosch applied Computer Vision (YOLO11) to defect detection on electric motors, with an edge setup on a Raspberry Pi 5, evaluated against production-line requirements. The thesis aimed to bridge the gap between research and production-ready industrial applications.</p>
+
+                        <p>Just a brief section about my hobby to get to know more about me. Besides studies, I really enjoy music, especially playing the piano. For me, it's a fun way to relax and it also helps me to be more creative and focused, which I believe is beneficial for everything I do, including my studies and projects. If you wish to know more about my piano covers, by clicking the door emoji <a href="/piano/" class="standalone-link" aria-label="Piano covers">🚪</a>, you will enter my world of music.</p>
+
                         <p>Thank you for taking the time to learn about me until this far. I'm always open to discussing innovative ideas, collaborative opportunities, or simply connecting with like-minded individuals!</p>
                     </div>
-                    <div class="about-image">
-                        <img src="images/intro-pic.JPG" alt="Intro Pic">
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section">
+            <div class="container">
+                <header class="section-head reveal">
+                    <span class="section-index" aria-hidden="true">(02)</span>
+                    <h2 class="section-title">Projects</h2>
+                </header>
+
+                <ol class="work-list" role="list" data-preview-list>
+                    <li class="work-row reveal">
+                        <span class="work-row__index" aria-hidden="true">01</span>
+                        <div class="work-row__main">
+                            <span class="work-row__thumb"><img src="/images/paper-trading-lab/paper-trading-lab-logo.png" alt="Paper Trading Lab" loading="lazy" decoding="async"></span>
+                            <h3 class="work-row__title">
+                                <a href="/projects/paper-trading-lab/" class="work-row__link">Paper Trading Lab</a>
+                                <span class="badge badge--live">Ongoing</span>
+                            </h3>
+                            <i class="fas fa-arrow-right work-row__arrow" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    <li class="work-row reveal">
+                        <span class="work-row__index" aria-hidden="true">02</span>
+                        <div class="work-row__main">
+                            <span class="work-row__thumb"><img src="/images/generative-adversarial-network/gan-face.jpg" alt="Generative Adversarial Network" loading="lazy" decoding="async"></span>
+                            <h3 class="work-row__title">
+                                <a href="/projects/gan/" class="work-row__link">Generative Adversarial Network</a>
+                            </h3>
+                            <i class="fas fa-arrow-right work-row__arrow" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    <li class="work-row reveal">
+                        <span class="work-row__index" aria-hidden="true">03</span>
+                        <div class="work-row__main">
+                            <span class="work-row__thumb"><img src="/images/jetson-self-driving-robot-car/jetbot.png" alt="Jetbot" loading="lazy" decoding="async"></span>
+                            <h3 class="work-row__title">
+                                <a href="/projects/cv-jetbot/" class="work-row__link">Jetson Self Driving Robot Car</a>
+                            </h3>
+                            <i class="fas fa-arrow-right work-row__arrow" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    <li class="work-row reveal">
+                        <span class="work-row__index" aria-hidden="true">04</span>
+                        <div class="work-row__main">
+                            <span class="work-row__thumb"><img src="/images/grip-wars.webp" alt="Grid Wars" loading="lazy" decoding="async"></span>
+                            <h3 class="work-row__title">
+                                <a href="/projects/grid-wars/" class="work-row__link">Grid Wars</a>
+                            </h3>
+                            <i class="fas fa-arrow-right work-row__arrow" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    <li class="work-row reveal">
+                        <span class="work-row__index" aria-hidden="true">05</span>
+                        <div class="work-row__main">
+                            <span class="work-row__thumb"><img src="/images/z3-solver-square.jpg" alt="Z3 Solver" loading="lazy" decoding="async"></span>
+                            <h3 class="work-row__title">
+                                <a href="/projects/z3-solver/" class="work-row__link">Z3 Solver</a>
+                            </h3>
+                            <i class="fas fa-arrow-right work-row__arrow" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    <li class="work-row reveal">
+                        <span class="work-row__index" aria-hidden="true">06</span>
+                        <div class="work-row__main">
+                            <span class="work-row__thumb"><img src="/images/chatbot.jpg" alt="Cinema Chatbot" loading="lazy" decoding="async"></span>
+                            <h3 class="work-row__title">
+                                <a href="/projects/cinema-chatbot/" class="work-row__link">Cinema Chatbot</a>
+                            </h3>
+                            <i class="fas fa-arrow-right work-row__arrow" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Achievements -->
+        <section id="achievements" class="section">
+            <div class="container">
+                <header class="section-head reveal">
+                    <span class="section-index" aria-hidden="true">(03)</span>
+                    <h2 class="section-title">Achievements</h2>
+                </header>
+
+                <ol class="work-list work-list--compact" role="list">
+                    <li class="work-row reveal">
+                        <span class="work-row__index" aria-hidden="true">01</span>
+                        <div class="work-row__main">
+                            <span class="work-row__thumb work-row__thumb--zoom"><img src="/images/congatec-logo.png" alt="congatec logo" loading="lazy" decoding="async"></span>
+                            <h3 class="work-row__title">
+                                <a href="/achievements/congatec/" class="work-row__link">Working Student Certificate</a>
+                            </h3>
+                            <i class="fas fa-arrow-right work-row__arrow" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    <li class="work-row reveal">
+                        <span class="work-row__index" aria-hidden="true">02</span>
+                        <div class="work-row__main">
+                            <span class="work-row__thumb work-row__thumb--zoom"><img src="/images/bosch-logo-without-name.jpg" alt="Bosch logo" loading="lazy" decoding="async"></span>
+                            <h3 class="work-row__title">
+                                <a href="/achievements/bosch/" class="work-row__link">Mandatory Internship Certificate</a>
+                            </h3>
+                            <i class="fas fa-arrow-right work-row__arrow" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    <li class="work-row reveal">
+                        <span class="work-row__index" aria-hidden="true">03</span>
+                        <div class="work-row__main">
+                            <span class="work-row__thumb"><img src="/images/cern-logo.png" alt="CERN logo" loading="lazy" decoding="async"></span>
+                            <h3 class="work-row__title">
+                                <a href="/achievements/cern/" class="work-row__link">CERN GridWars Hackathon - 2nd Place</a>
+                            </h3>
+                            <i class="fas fa-arrow-right work-row__arrow" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- CV -->
+        <section id="cv" class="section">
+            <div class="container">
+                <header class="section-head reveal">
+                    <span class="section-index" aria-hidden="true">(04)</span>
+                    <h2 class="section-title">Curriculum Vitae</h2>
+                </header>
+
+                <div class="cv-block">
+                    <div class="timeline-group reveal">
+                        <h3 class="timeline-label">Experience</h3>
+                        <ol class="timeline" role="list">
+                            <li class="timeline__row">
+                                <!-- TODO: add start date, e.g. <time datetime="2026-09">09/2026</time> – Present -->
+                                <p class="timeline__date">Present</p>
+                                <div class="timeline__main">
+                                    <p class="timeline__role">AI Engineer <span class="badge badge--live">Current</span></p>
+                                    <p class="timeline__org">Toolbox Cloud Solutions GmbH</p>
+                                </div>
+                            </li>
+                            <li class="timeline__row">
+                                <p class="timeline__date"><time datetime="2025-04">04/2025</time> – <time datetime="2025-10">10/2025</time></p>
+                                <div class="timeline__main">
+                                    <p class="timeline__role">Bachelor Thesis Student</p>
+                                    <p class="timeline__org">Robert Bosch GmbH</p>
+                                </div>
+                            </li>
+                            <li class="timeline__row">
+                                <p class="timeline__date"><time datetime="2024-11">11/2024</time> – <time datetime="2025-03">03/2025</time></p>
+                                <div class="timeline__main">
+                                    <p class="timeline__role">Data Science Intern (Industry 4.0)</p>
+                                    <p class="timeline__org">Robert Bosch GmbH</p>
+                                </div>
+                            </li>
+                            <li class="timeline__row">
+                                <p class="timeline__date"><time datetime="2022-11">11/2022</time> – <time datetime="2023-07">07/2023</time></p>
+                                <div class="timeline__main">
+                                    <p class="timeline__role">Working Student, Manufacturing Engineering</p>
+                                    <p class="timeline__org">congatec GmbH</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="timeline-group reveal">
+                        <h3 class="timeline-label">Education</h3>
+                        <ol class="timeline" role="list">
+                            <li class="timeline__row">
+                                <p class="timeline__date"><time datetime="2020-10">10/2020</time> – <time datetime="2026-08">08/2026</time></p>
+                                <div class="timeline__main">
+                                    <p class="timeline__role">B.Sc. Artificial Intelligence</p>
+                                    <p class="timeline__org">Deggendorf Institute of Technology</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <!-- CV file: place the compiled PDF at assets/cv/cv_en.pdf (German version later: cv_de.pdf) -->
+                    <div class="cv-actions reveal">
+                        <a href="/assets/cv/cv_en.pdf" class="btn btn-primary" download="Bryan_Bu_CV_EN.pdf">
+                            <i class="fas fa-arrow-down" aria-hidden="true"></i> Download CV (PDF)
+                        </a>
+                        <a href="/assets/cv/cv_en.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-up-right-from-square" aria-hidden="true"></i> View
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Grid -->
-        <section id="projects">
-            <h2 class="section-title reveal">Projects</h2>
+        <!-- Contact -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <header class="section-head reveal">
+                    <span class="section-index" aria-hidden="true">(05)</span>
+                    <h2 class="section-title">Contact</h2>
+                </header>
 
-            <div class="bento-grid">
-                
-                <div class="bento-item reveal">
-                    <a href="./projects/paper-trading-lab/" class="project-card">
-                        <div class="img-wrapper">
-                            <img src="images/paper-trading-lab/paper-trading-lab-logo.png" alt="Paper Trading Lab">
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Paper Trading Lab<span class="ongoing-badge"><i class="fas fa-fire"></i>Ongoing</span></h3>
-                            <p></p>
-                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
-                        </div>
+                <div class="contact__body reveal">
+                    <p class="contact__subtitle">
+                        Feel free to reach out for collaborations, questions, or even just to say hello!! Drop me a message below and I'll get back to you soon.
+                    </p>
+
+                    <a href="mailto:bubryanwb@gmail.com" class="contact__mail">
+                        Send me an email! <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
+
+                    <div class="contact__actions">
+                        <button type="button" class="icon-btn" data-copy-email="bubryanwb@gmail.com" aria-label="Copy email address" title="Copy email address">
+                            <i class="far fa-copy" aria-hidden="true"></i>
+                        </button>
+                        <a href="https://github.com/Bryanbu2014" class="icon-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/bryanbuwb/" class="icon-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
-
-                <div class="bento-item reveal">
-                    <a href="./projects/gan/" class="project-card">
-                        <div class="img-wrapper">
-                            <img src="images/generative-adversarial-network/gan-face.jpg" alt="gan-resized">
-                        </div>
-                        <div class="project-info">
-                            <h3>Generative Adversarial Network</h3>
-                            <p></p>
-                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="bento-item reveal">
-                    <a href="./projects/cv-jetbot/" class="project-card">
-                        <div class="img-wrapper">
-                            <img src="images/jetson-self-driving-robot-car/jetbot.png" alt="Jetbot">
-                        </div>
-                        <div class="project-info">
-                            <h3>Jetson Self Driving Robot Car</h3>
-                            <p></p>
-                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Hidden Projects to be loaded -->
-                <div class="bento-item hidden-project">
-                    <a href="./projects/grid-wars/" class="project-card">
-                        <div class="img-wrapper">
-                            <img src="images/grip-wars.webp" alt="grid wars">
-                        </div>
-                        <div class="project-info">
-                            <h3>Grid Wars</h3>
-                            <p></p>
-                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="bento-item hidden-project">
-                    <a href="./projects/z3-solver/" class="project-card">
-                        <div class="img-wrapper">
-                            <img src="images/z3-solver-square.jpg" alt="z3 solver">
-                        </div>
-                        <div class="project-info">
-                            <h3>Z3 Solver</h3>
-                            <p></p>
-                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="bento-item hidden-project">
-                    <a href="./projects/cinema-chatbot/" class="project-card">
-                        <div class="img-wrapper">
-                            <img src="images/chatbot.jpg" alt="cinema chatbot">
-                        </div>
-                        <div class="project-info">
-                            <h3>Cinema Chatbot</h3>
-                            <p></p>
-                            <span class="project-link-text">View Project <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="reveal projects-controls">
-                <button id="loadMoreProjects" class="btn btn-outline">Load More Projects</button>
-                <button id="showLessProjects" class="btn btn-outline">Show Less Projects</button>
-            </div>
-        </section>
-
-        <!-- Achievements Section -->
-        <section id="achievements">
-            <h2 class="section-title reveal">Achievements</h2>
-
-            <div class="achievements-grid">
-                <a href="./achievements/congatec/" class="achievement-card reveal">
-                    <img src="images/congatec-logo.png" alt="congatec-logo">
-                    <h3>Working Student Certificate</h3>
-                </a>
-                
-                <a href="./achievements/bosch/" class="achievement-card reveal">
-                    <img src="images/bosch-logo-without-name.jpg" alt="bosch-logo">
-                    <h3>Mandatory Internship Certificate</h3>
-                </a>
-
-                <a href="./achievements/cern/" class="achievement-card reveal">
-                    <img src="images/cern-logo.png" alt="cern-logo">
-                    <h3>CERN GridWars Hackathon - 1st Runner Up</h3>
-                </a>
-
-            </div>
-        </section>
-
-        <!-- CV Section -->
-        <section id="cv">
-            <h2 class="section-title reveal">Curriculum Vitae</h2>
-            
-            <div class="cv-container reveal">
-                <iframe src="https://drive.google.com/file/d/1MkqKsc79mFQgTJmpBA77-afPLfzpec-L/preview" allow="autoplay"></iframe>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <div class="contact-wrapper reveal">
-                <h2 class="contact-title">Contact</h2>
-                <p class="contact-subtitle">
-                    Feel free to reach out for collaborations, questions, or even just to say hello!! Drop me a message below and I'll get back to you soon.
-                </p>
-                
-                <div class="social-links">
-                    <a href="https://github.com/Bryanbu2014" target="_blank" rel="noopener noreferrer" title="Github"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/bryanbuwb/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                
-                <button id="copyEmailBtn" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i> Send me an email!
-                </button>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.
-        <br>All company logos belong to their respective owners.</p>
-        <div class="footer-version-wrapper">
-            <a href="version-history.html" class="version-badge">
-                <div class="version-badge-tag"><i class="fas fa-code-branch"></i>v2.1.3</div>
-                <span class="version-badge-date">June 01, 2026</span>
-            </a>
+    <footer class="site-footer site-footer--inverted">
+        <div class="container site-footer__inner">
+            <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.
+            <br>All company logos belong to their respective owners.</p>
+            <p class="site-footer__meta">
+                Last updated <time datetime="2026-11">November 2026</time>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/Bryanbu2014/portfolio" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+            </p>
         </div>
     </footer>
 
-    <!-- Toast Notification -->
-    <div id="copyNotification" class="toast-notification">
-        <i class="fas fa-check-circle" style="color: #10b981;"></i> Email copied to clipboard! ✨
+    <div id="toast" class="toast" role="status" data-message="Email copied to clipboard! ✨">
+        <i class="fas fa-check-circle" aria-hidden="true"></i><span data-toast-text></span>
     </div>
-
-    <!-- Scripts -->
-    <script src="assets/js/version.js"></script>
-    <script src="assets/js/script.js"></script>
 </body>
 </html>
