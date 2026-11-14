@@ -1,101 +1,105 @@
 <!DOCTYPE html>
+<!--
+    Project page template (v3).
+    Copy to projects/<slug>/index.html. All paths are root-relative (/assets/..., /images/...),
+    so the page works at any depth. For an achievement page, point "Go Back" to /#achievements.
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Project Title | Bryan Bu Wen Bin</title>
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="../../favicon_io/site.webmanifest">
-    
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS (Design 3) -->
-    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- Design system -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <script src="/assets/js/boot.js"></script>
+    <script src="/assets/js/script.js" defer></script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Top Left Home Button -->
-    <a href="../../index.html" class="home-btn-corner" aria-label="Home" onclick="sessionStorage.removeItem('projectsExpanded'); sessionStorage.removeItem('animationsPlayed');">
-        <i class="fas fa-home"></i>
-    </a>
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a href="/" class="brand" aria-label="Home">
+                <span class="brand__mark" aria-hidden="true"></span>
+                <span class="brand__name">Bryan Bu Wen Bin</span>
+            </a>
 
-    <!-- Floating Pill Navigation -->
-    <nav class="navbar-pill">
-        <a href="#" onclick="window.history.back(); return false;" class="nav-link"><i class="fas fa-arrow-left"></i> Go Back</a>
-    </nav>
+            <nav class="site-nav" aria-label="Page">
+                <a href="/#projects" class="back-link"><i class="fas fa-arrow-left" aria-hidden="true"></i> Go Back</a>
+            </nav>
 
-    <!-- Main Content -->
-    <main>
-        <article class="article-container reveal active">
-            
+            <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <article class="article-container">
+
             <header class="article-header">
                 <h1 class="article-title">Main Project Title Here</h1>
-                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">Short descriptive subtitle for your project.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="https://github.com/Bryanbu2014" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Source</a>
-                    <a href="#" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <p class="article-subtitle">Short descriptive subtitle for your project.</p>
+                <div class="article-actions">
+                    <a href="https://github.com/Bryanbu2014" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> View Source</a>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-up-right-from-square" aria-hidden="true"></i> Live Demo</a>
                 </div>
             </header>
 
-            <img src="../../images/aurora-degg.jpg" alt="A description of your main image" class="article-image reveal active">
+            <img src="/images/aurora-degg.jpg" alt="A description of your main image" class="article-image">
 
             <div class="article-content">
-                <h3 class="reveal active">Introduction</h3>
-                <p class="reveal active">
+                <h3>Introduction</h3>
+                <p>
                     Your first paragraph of content goes here. You can write about the
                     introduction, background, or goals of your project. Keep it clear
                     and easy to read so visitors understand what you did.
                 </p>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="version-separator">
 
-                <h3 class="reveal active">Key Features & Results</h3>
-                <ul class="reveal active">
+                <h3>Key Features &amp; Results</h3>
+                <ul>
                     <li>Bullet point 1 goes here. Talk about specific tech used.</li>
                     <li>Bullet point 2 goes here. Mention a problem you solved.</li>
                     <li>Bullet point 3 goes here. Highlight a major achievement.</li>
                 </ul>
 
-                <hr style="border: 0; border-top: 2px solid var(--text-muted); margin: 3rem 0; opacity: 0.6;" class="reveal active">
+                <hr class="version-separator">
 
-                <h3 class="reveal active">Conclusion</h3>
-                <p class="reveal active">
+                <h3>Conclusion</h3>
+                <p>
                     More content goes here. This is a great place to show your final
                     results, talk about challenges you faced, or add a link to a video.
                 </p>
+
+                <!-- Optional embeds:
+                <div class="video-container">
+                    <iframe src="..." title="Video title" loading="lazy" allow="autoplay"></iframe>
+                </div>
+                <img src="..." alt="..." class="article-image clickable-image" loading="lazy" decoding="async">
+                -->
             </div>
         </article>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; Bryan Bu Wen Bin 2026. All rights reserved. <br>Designed by me, powered by AI.</p>
     </footer>
-
-    <!-- Scripts -->
-    <script>
-        // Intersection Observer for Reveal Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
