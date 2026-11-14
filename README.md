@@ -14,9 +14,9 @@ Hand-built with plain HTML, CSS and JavaScript: no framework, no build step. The
 ### Key Features
 - **Design system:** One stylesheet (`assets/css/main.css`) built on design tokens, with light and dark themes that follow the system setting plus a remembered manual toggle.
 - **Project index:** A numbered list of projects; on desktop a preview image follows the cursor, on touch devices thumbnails are shown inline.
-- **CV timeline:** Experience and education shown on the page, with a PDF download.
+- **CV timeline:** Experience and education shown on the page, with the English and German CV in a pop-up viewer.
 - **Accessible:** Skip link, visible keyboard focus, labelled icon buttons, a native `<dialog>` image lightbox, and full support for "reduce motion".
-- **Clean URLs:** Root-relative, directory-based addresses (e.g. `/projects/gan/`, `/piano/`) on the custom domain.
+- **Clean URLs:** Root-relative, directory-based addresses (e.g. `/projects/gan/`, `/experience/bosch/`) on the custom domain.
 - **Shareable:** Description, canonical and Open Graph tags on every page, plus `sitemap.xml` and `robots.txt`.
 - **Responsive:** Adapts to mobile, tablet and desktop.
 
@@ -27,12 +27,13 @@ Hand-built with plain HTML, CSS and JavaScript: no framework, no build step. The
 - `assets/css/main.css` - The design system.
 - `assets/js/boot.js` - Runs before first paint (theme, intro state).
 - `assets/js/script.js` - Site interactions (navigation, theme toggle, cursor preview, lightbox).
-- `assets/cv/` - CV as PDF (`cv_en.pdf`).
+- `assets/cv/` - CV as PDF, English (`cv_wenbin_english.pdf`) and German (`cv_wenbin_german.pdf`).
 - `assets/html/project-template.html` - Starting point for new project pages.
 - `images/` - Portfolio images, logos, and project thumbnails.
 - `projects/` - Individual project pages with embedded videos and details (Paper Trading Lab, GAN, Jetbot, Grid Wars, Z3 Solver, Cinema Chatbot).
-- `piano/` - Piano covers (hobby page, linked from the door emoji in About Me).
-- `achievements/` - Individual achievement pages with embedded certificates (CERN, Bosch, Congatec).
+- `_archive/` - Pages kept in the repository but not published (Jekyll skips `_` folders), e.g. the piano covers page.
+- `experience/` - Experience pages (Bosch, congatec), opened from the CV timeline.
+- `achievements/` - Achievement pages (CERN GridWars Hackathon); the old Bosch and congatec addresses forward to `experience/`.
 
 ## 🖥️ Running Locally
 

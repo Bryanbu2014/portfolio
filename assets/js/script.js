@@ -262,6 +262,156 @@ if (document.querySelector('.hero')) {
     });
 })();
 
+/* Document viewer (native <dialog>): CV, certificates ---------------------
+   Markup: an opener with data-doc-open="<dialog id">, and a .doc-dialog whose switch buttons carry
+   data-doc-src / data-doc-title. The first switch button is shown by default. */
+(function initDocViewers() {
+    if (typeof HTMLDialogElement !== 'function') return;
+
+    // Phones/tablets and browsers without an inline PDF viewer (e.g. Android Chrome) cannot show a
+    // PDF inside the page: they get the same dialog with an "Open PDF" button instead of the frame.
+    const inline = navigator.pdfViewerEnabled !== false && !window.matchMedia('(pointer: coarse)').matches;
+
+    document.querySelectorAll('[data-doc-open]').forEach((opener) => {
+        const dialog = document.getElementById(opener.dataset.docOpen);
+        if (!dialog) return;
+
+        const frame = dialog.querySelector('.doc-dialog__frame');
+        const fallback = dialog.querySelector('.doc-dialog__fallback');
+        const fallbackLink = fallback.querySelector('a');
+        const title = dialog.querySelector('.doc-dialog__title');
+        const options = [...dialog.querySelectorAll('[data-doc-src]')];
+
+        frame.hidden = !inline;
+        fallback.hidden = inline;
+        dialog.classList.toggle('is-fallback', !inline);
+
+        let current = options[0];
+        const show = (option) => {
+            current = option;
+            title.textContent = option.dataset.docTitle;
+            options.forEach((o) => o.setAttribute('aria-pressed', String(o === option)));
+            if (inline) {
+                // Hide the viewer toolbar (download/print) where the browser supports these PDF parameters.
+                frame.src = `${option.dataset.docSrc}#toolbar=0&navpanes=0&view=FitH`;
+                frame.title = option.dataset.docTitle;
+            } else {
+                fallbackLink.href = option.dataset.docSrc;
+            }
+        };
+
+        opener.addEventListener('click', (e) => {
+            e.preventDefault();
+            show(current);
+            document.body.style.overflow = 'hidden';
+            dialog.showModal();
+        });
+        options.forEach((option) => option.addEventListener('click', () => show(option)));
+        dialog.querySelector('[data-doc-close]').addEventListener('click', () => dialog.close());
+        dialog.addEventListener('click', (e) => {
+            if (e.target === dialog) dialog.close(); // backdrop click
+        });
+        dialog.addEventListener('close', () => {
+            document.body.style.overflow = '';
+            if (inline) frame.removeAttribute('src');
+        });
+    });
+})();
+
+/* Piano page: tracklist + single player built from the existing cards ------
+   Each card is a <div> with an <h3><a href="spotify">Title</a></h3>, optional <p> part labels and
+   one or more .video-container iframes. Without JS the cards stay visible as a grid. */
+(function initPianoPlayer() {
+    const article = document.querySelector('.article--piano');
+    if (!article) return;
+    const content = article.querySelector('.article-content');
+    const cards = [...content.querySelectorAll(':scope > div')].filter((d) => d.querySelector('iframe'));
+    if (!cards.length) return;
+
+    // Read the existing markup: title link + video parts (with their labels, if any).
+    const tracks = cards.map((card) => {
+        const link = card.querySelector('h3 a');
+        const parts = [];
+        let label = null;
+        [...card.children].forEach((el) => {
+            if (el.tagName === 'P') label = el.textContent.trim();
+            const frame = el.querySelector && el.querySelector('iframe');
+            if (frame) {
+                parts.push({ label, src: frame.getAttribute('src') });
+                label = null;
+            }
+        });
+        return { title: link.textContent.trim(), href: link.getAttribute('href'), parts };
+    });
+
+    const el = (tag, cls, attrs = {}) => {
+        const node = document.createElement(tag);
+        if (cls) node.className = cls;
+        Object.entries(attrs).forEach(([k, v]) => node.setAttribute(k, v));
+        return node;
+    };
+
+    const stage = el('div', 'piano-stage');
+    const list = el('ol', 'piano-tracks', { role: 'list' });
+    const player = el('div', 'piano-player');
+    const playerTitle = el('h2', 'piano-player__title', { 'aria-live': 'polite' });
+    const frameWrap = el('div', 'piano-player__frame');
+    const frame = el('iframe', '', { allow: 'autoplay', loading: 'lazy' });
+    frameWrap.append(frame);
+    player.append(playerTitle, frameWrap);
+
+    const items = [];
+    const play = (index, partIndex = 0) => {
+        const track = tracks[index];
+        const part = track.parts[partIndex];
+        frame.src = part.src;
+        frame.title = track.title;
+        playerTitle.textContent = track.title;
+        items.forEach((item, i) => {
+            item.li.classList.toggle('is-active', i === index);
+            item.play.setAttribute('aria-current', i === index ? 'true' : 'false');
+            item.partButtons.forEach((b, j) => b.setAttribute('aria-pressed', String(i === index && j === partIndex)));
+        });
+    };
+
+    tracks.forEach((track, index) => {
+        const li = el('li', 'piano-track');
+        const row = el('div', 'piano-track__row');
+        const playBtn = el('button', 'piano-track__play', { type: 'button' });
+        playBtn.textContent = track.title;
+        playBtn.addEventListener('click', () => play(index));
+
+        const spotify = el('a', 'piano-track__spotify', {
+            href: track.href, target: '_blank', rel: 'noopener noreferrer',
+            'aria-label': `${track.title} on Spotify`, title: 'Spotify',
+        });
+        const icon = el('i', 'fab fa-spotify', { 'aria-hidden': 'true' });
+        spotify.append(icon);
+        row.append(playBtn, spotify);
+        li.append(row);
+
+        const partButtons = [];
+        if (track.parts.length > 1) {
+            const parts = el('div', 'piano-track__parts');
+            track.parts.forEach((part, partIndex) => {
+                const b = el('button', 'piano-track__part', { type: 'button', 'aria-pressed': 'false' });
+                b.textContent = part.label || String(partIndex + 1);
+                b.addEventListener('click', () => play(index, partIndex));
+                parts.append(b);
+                partButtons.push(b);
+            });
+            li.append(parts);
+        }
+        list.append(li);
+        items.push({ li, play: playBtn, partButtons });
+    });
+
+    stage.append(list, player);
+    cards[0].before(stage);
+    article.classList.add('is-player');
+    play(0);
+})();
+
 /* Image lightbox (native <dialog>) -------------------------------------- */
 (function initLightbox() {
     const images = document.querySelectorAll('.clickable-image');
