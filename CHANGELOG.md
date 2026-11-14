@@ -8,12 +8,14 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ### Content Updates 📝
 
+- Removed the CelebA sample photos (real people) and their two describing paragraphs from the GAN page, and deleted unused face images
 - Updated the intro and About Me to reflect graduation (B.Sc. Artificial Intelligence, 2026) and the current AI Engineer role
 - Rewrote the Bachelor's thesis summary in the past tense with its key details
 - Renamed the CERN GridWars Hackathon result to "2nd Place" for consistency with the CV
 
 ### Design Overhaul 🎨
 
+- Project and experience pages now use the homepage grid: numbered section headings in a left rail, text at reading width, media beside its heading
 - Redesigned the entire portfolio with a new bold-minimal design system: large Geist typography, Geist Mono details and a single signal colour
 - Replaced the floating pill navigation and corner Home button with a single sticky header across all pages
 - Turned projects and achievements into a numbered index list, with a floating image preview that follows the cursor (inline thumbnails on touch devices)
@@ -22,14 +24,18 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ### UX Improvements ✨
 
+- Split Projects into "Selected work" (Grid Wars, Paper Trading Lab) and a compact "Earlier work" list, with a context label on every project; Paper Trading Lab is marked "On hold": its page explains the rethink and no longer offers beta access
+- Replaced the public Arbeitszeugnis pages with experience pages (`/experience/bosch/`, `/experience/congatec/`) built from the CV; certificates are now available on request, and the old addresses forward to the new pages
+- CV timeline rows open their experience page; Achievements now lists only achievements (CERN GridWars Hackathon, which links to the Grid Wars project)
+- The CERN certificates open in the same pop-up viewer as the CV, with an Award/Participation switch
 - Moved the site to the custom domain [bryanbu.me](https://bryanbu.me) with clean, root-relative URLs (no more `index.html` in addresses)
-- Gave the piano covers their own address at `/piano/`; the old `/projects/piano-cover/` link forwards there
+- Unpublished the piano covers page (kept in `_archive/` in the repository) and removed the hobby paragraph from About Me
 - Renamed the homepage tab title to "Bryan Bu Wen Bin | AI Engineer" and the CERN page title to the full hackathon name
 - Added page descriptions, canonical URLs and Open Graph tags so shared links show a proper preview, plus `sitemap.xml` and `robots.txt`
 - All projects are now visible at once, replacing the "Load More" interaction
 - "Send me an email!" now opens the mail client, with a separate button to copy the address
 - "Go Back" now links to the relevant homepage section instead of relying on browser history
-- Replaced the embedded Google Drive CV with an on-page experience and education timeline, plus PDF download and view buttons
+- Replaced the embedded Google Drive CV with an on-page experience and education timeline, plus a single "View CV" pop-up with an English/German switch (no download button), with entries matching the CV
 - The hero typewriter no longer shifts the layout while typing
 
 ### Accessibility ♿

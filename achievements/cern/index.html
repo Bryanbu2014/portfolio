@@ -64,20 +64,38 @@
             </header>
 
             <div class="article-content">
-                <h3 class="text-center">Certificate of Participation</h3>
-                <div class="cv-container mb-4">
-                    <iframe title="Embedded document" loading="lazy" src="https://drive.google.com/file/d/15uyLQseBoFaOcf1KNG_cZgIT0kxkkzrt/preview" allow="autoplay"></iframe>
-                </div>
+                <p>The project behind this result: <a href="/projects/grid-wars/">Grid Wars</a>.</p>
 
-                <hr class="version-separator">
-
-                <h3 class="text-center">Hackathon Award Certificate</h3>
-                <div class="cert-container mb-4">
-                    <iframe title="Embedded document" loading="lazy" src="https://drive.google.com/file/d/1XIwS49t-YEdpsHi0AH7S6N8dzvmJPkqJ/preview" allow="autoplay"></iframe>
+                <!-- Certificate PDFs live in assets/certificates/ (paths set on the buttons in #cert-dialog).
+                     Without JS this link opens the award certificate in a new tab. -->
+                <div class="cv-actions">
+                    <a href="/assets/certificates/cern-gridwars-award.pdf" class="btn btn-primary" data-doc-open="cert-dialog" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-eye" aria-hidden="true"></i> View certificates
+                    </a>
                 </div>
             </div>
         </article>
     </main>
+
+    <dialog id="cert-dialog" class="doc-dialog" aria-labelledby="cert-dialog-title">
+        <div class="doc-dialog__bar">
+            <h2 id="cert-dialog-title" class="doc-dialog__title">Hackathon Award Certificate</h2>
+            <div class="doc-dialog__switch" role="group" aria-label="Certificate">
+                <button type="button" data-doc-src="/assets/certificates/cern-gridwars-award.pdf" data-doc-title="Hackathon Award Certificate" aria-pressed="true">Award</button>
+                <button type="button" data-doc-src="/assets/certificates/cern-gridwars-participation.pdf" data-doc-title="Certificate of Participation" aria-pressed="false">Participation</button>
+            </div>
+            <button type="button" class="icon-btn" data-doc-close aria-label="Close certificates">
+                <i class="fas fa-xmark" aria-hidden="true"></i>
+            </button>
+        </div>
+        <iframe class="doc-dialog__frame" title="Hackathon Award Certificate"></iframe>
+        <!-- Shown instead of the frame on devices that cannot display PDFs inline (most phones) -->
+        <div class="doc-dialog__fallback" hidden>
+            <a class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-up-right-from-square" aria-hidden="true"></i> Open PDF
+            </a>
+        </div>
+    </dialog>
 
     <!-- Footer -->
     <footer>
